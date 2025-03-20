@@ -2,8 +2,8 @@ import React from 'react'
 
 const Newsletter = () => {
  
-    const onSubmitHandler = () =>{
-        event.preventDefault();
+    const onSubmitHandler = (e) =>{
+        e.preventDefault();
     }
   return (
     <div className='text-center py-15'> 

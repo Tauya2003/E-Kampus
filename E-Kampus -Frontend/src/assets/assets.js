@@ -62,6 +62,11 @@ import p_img58 from './p_img58.png'
 import p_img59 from './p_img59.png'
 import p_img60 from './p_img60.png'
 import p_img61 from './p_img61.png'
+import p_img62 from './p_img62.png'
+import p_img63 from './p_img63.png'
+import p_img64 from './p_img64.png'
+import p_img65 from './p_img65.png'
+
 
 import E_logo from './Ekampus_logo_old.png'
 import logo from './logo.png'
@@ -736,7 +741,7 @@ export const products = [
         price: 2.50,
         image: [p_img53],
         category: "Groceries",
-        subCategory: "Cereals",
+        subCategory: "Breakfasts",
         sizes: ["500g", "1kg", "2kg"],
         date: 1716669545448,
         bestseller: true
@@ -748,7 +753,7 @@ export const products = [
         price: 1.0,
         image: [p_img54],
         category: "Groceries",
-        subCategory: "Spreads",
+        subCategory: "Breakfasts",
         sizes: ["500g", "1kg", "2kg"],
         date: 1716672145448,
         bestseller: true
@@ -760,7 +765,7 @@ export const products = [
         price: 3.50,
         image: [p_img55],
         category: "Groceries",
-        subCategory: "Winterwear",
+        subCategory: "Breakfasts",
         sizes: ["1kg", "2kg"],
         date: 1716673045448,
         bestseller: false
@@ -772,7 +777,7 @@ export const products = [
         price: 2.00,
         image: [p_img56],
         category: "Groceries",
-        subCategory: "Cereals",
+        subCategory: "Breakfasts",
         sizes: ["500g", "1kg", "2kg"],
         date: 1716673545448,
         bestseller: false
@@ -836,6 +841,55 @@ export const products = [
         sizes: ["One Size fits all"],
         date: 1716679745448,
         bestseller: true
-    }
+    },
+    {
+        _id: "aaacj",
+        name: "Dell Laptop",
+        description: " Dell Laptop, 24Hour battery-life and 5 minute charge to full.",
+        price: 125,
+        image: [p_img62],
+        category: "Electricals-Appliances",
+        subCategory: "Appliances",
+        sizes: ["L"],
+        date: 1716681745448,
+        bestseller: true
+    },
+    {
+        _id: "aaack",
+        name: "Apple Airpods",
+        description: " Apple Airpods, 24Hour battery-life and 5 minute charge to full.",
+        price: 15,
+        image: [p_img63],
+        category: "Electricals-Appliances",
+        subCategory: "Appliances",
+        sizes: ["One Size fits all"],
+        date: 1716683045448,
+        bestseller: true
+    },
+    {
+        _id: "aaacl",
+        name: "Men's Loafers",
+        description: "Brown, lightweight shoes ",
+        price: 9,
+        image: [p_img64],
+        category: "Men",
+        subCategory: "Men's Shoes",
+        sizes: ["S", "M", "L", "XL"],
+        date: 1716683445448,
+        bestseller: true
+    },
+    {
+        _id: "aaacm",
+        name: "Women's Trainers",
+        description: " Pink, Lightweight Shoes for Gym and Running, 5mm sole, 3mm heel.",
+        price: 10.75,
+        image: [p_img65],
+        category: "Women",
+        subCategory: "Women's Shoes",
+        sizes: ["S", "M", "L", "XL"],
+        date: 1716684345448,
+        bestseller: true
+    },
+    
 
 ];
