@@ -18,20 +18,24 @@ const Navbar = () => {
                 <p>HOME</p>
                 <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
             </NavLink>
-            <NavLink to='/Groceries' className='flex flex-col items-center gap-1 '>
-                <p>GROCERIES</p>
+            <NavLink to='/Men' className='flex flex-col items-center gap-1 '>
+                <p>MEN</p>
                 <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
             </NavLink>
-            <NavLink to='/ClothingMen' className='flex flex-col items-center gap-1 '>
-                <p>CLOTHING MEN</p>
-                <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
-            </NavLink>
-            <NavLink to='/ClothingWomen' className='flex flex-col items-center gap-1'>
-                <p>CLOTHING WOMEN</p>
+            <NavLink to='/Women' className='flex flex-col items-center gap-1'>
+                <p>WOMEN</p>
                 <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
             </NavLink>
             <NavLink to='/ElectricalAppliances' className='flex flex-col items-center gap-1'>
                 <p>ELECTRICAL & APPLIANCES</p>
+                <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
+            </NavLink>
+            <NavLink to='/Groceries' className='flex flex-col items-center gap-1 '>
+                <p>GROCERIES</p>
+                <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
+            </NavLink>
+            <NavLink to='/Services' className='flex flex-col items-center gap-1'>
+                <p>SERVICES</p>
                 <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
             </NavLink>
         </ul>
@@ -65,10 +69,12 @@ const Navbar = () => {
                     </div>
 
                     <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/'>HOME</NavLink>
-                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/Groceries'>GROCERIES</NavLink>
-                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/ClothingMen'>CLOTHING MEN</NavLink>
-                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/ClothingWomen'>CLOTHING WOMEN</NavLink>
+                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/ClothingMen'>MEN</NavLink>
+                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/ClothingWomen'>WOMEN</NavLink>
                     <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/ElectricalAppliances'>ELECTRICAL & APPLIANCES</NavLink>
+                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/Groceries'>GROCERIES</NavLink>
+                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/Services'>SERVICES</NavLink>
+
                 </div>
         </div>
 

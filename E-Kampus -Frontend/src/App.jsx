@@ -1,20 +1,21 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
+import Home from './Pages/Home';
 import Collection from './Pages/Groceries'
-import Product from './pages/Product'
-import Orders from './pages/Orders'
-import PlaceOrder from './pages/PlaceOrder'
-import Cart from './pages/Cart'
-import About from './pages/About'
-import Login from './pages/Login'
+import Product from './Pages/Product'
+import Orders from './Pages/Orders'
+import PlaceOrder from './Pages/PlaceOrder'
+import Cart from './Pages/Cart'
+import About from './Pages/About'
+import Login from './Pages/Login'
 import Register from './Pages/Register'
 import ForgotPassword from './Pages/ForgotPassword'
 import ResetPassword from './Pages/ResetPassword'
 import Navbar from './components/Navbar'
-import ClothingWomen from './Pages/Clothing-Women'
-import ClothingMen from './Pages/Clothing-Men'
+import Women from './Pages/Women'
+import Men from './Pages/Men'
 import ElectricalAppliances from './Pages/Electrical-Appliances'
+import Services from './Pages/Services'
 
 const App = () => {
   return (
@@ -23,7 +24,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/Groceries' element={<Collection />} />
-        <Route path='/ClothingMen' element={<ClothingMen />} />
+        <Route path='/Men' element={<Men />} />
         <Route path='/product/:productId' element={<Product />} />
         <Route path='/orders' element={<Orders />} />
         <Route path='place-order' element={<PlaceOrder />} />
@@ -32,8 +33,9 @@ const App = () => {
         <Route path='/Register' element={<Register />} />
         <Route path='/ForgotPassword' element={<ForgotPassword />} />
         <Route path='/ResetPassword' element={<ResetPassword />} />
-        <Route path='/ClothingWomen' element={<ClothingWomen/>} />
+        <Route path='/Women' element={<Women/>} />
         <Route path='/ElectricalAppliances' element={<ElectricalAppliances />} />
+        <Route path='/Services' element={<Services />} />
       </Routes>
     </div>
   )
