@@ -14,6 +14,7 @@ const Collection = () => {
     const [category,setCategory] = useState([])
     const [subCategory,setSubCategory] = useState([])
     const [sortType,setSortType] = useState('relevant')
+    const [isLoading, setIsLoading] = useState(false)
 
     const toggleCategory = (e)=>{
         if(category.includes(e.target.value)){
@@ -33,8 +34,9 @@ const Collection = () => {
     }
 
     const filterApply = () =>{
+        setIsLoading(true)
 
-        let productCopy = products.slice();
+        let productCopy = [...products];
 
         if (category.length > 0) {
             productCopy = productCopy.filter(item => category.includes(item.category));
@@ -47,17 +49,19 @@ const Collection = () => {
 
         switch (sortType) { 
             case 'Low-high':
-                productCopy = (productCopy.sort((a, b) => a.price - b.price));
+                productCopy = [...productCopy].sort((a, b) => a.price - b.price);
                 break;
 
             case 'High-low':
-                productCopy = (productCopy.sort((a, b) => b.price - a.price));
+                productCopy = [...productCopy].sort((a, b) => b.price - a.price);
                 break;
 
             default:
+                productCopy = [...products]; //Reset to default order
                 break;
         }
         setFilteredProducts(productCopy)
+        setIsLoading(false)
     }
 
    
@@ -76,7 +80,7 @@ const Collection = () => {
         
         {/* Filter */}
         <div className='min-w-60'>
-            <p onClick={()=>setShowFilter(!showFilter)} className='my-2 text-xl flex items-center cursor-pointer gap-2'>FILTERS
+            <p onClick={()=>setShowFilter(!showFilter)} className='my-2 text-xl flex items-center cursor-pointer gap-2' aria-label={showFilter ? 'Hide Filters' : 'Show Filters'} >FILTERS
                 <img src={assets.dropdown_icon} alt="" className={`h-3 sm:hidden ${showFilter ? 'rotate-180' : '' }`} />
             </p>
             
@@ -122,7 +126,7 @@ const Collection = () => {
                     </p>
                     <p className='flex gap-2'>
                         <label>
-                        <input type="checkbox" className='w-3' value={'Shoes-Women'} onChange={toggleSubCategory} /> Men's Shoes
+                        <input type="checkbox" className='w-3' value={'Shoes-Men'} onChange={toggleSubCategory} /> Men's Shoes
                         </label>
                     </p>
                     <p className='flex gap-2'>
@@ -167,17 +171,21 @@ const Collection = () => {
                 <select onChange={(e)=>setSortType(e.target.value)}className='border-2 border-gray-300 text-sm px-2'>
                     <option value="relevant">Sort By: Relevant</option>
                     <option value="Low-high">Sort By: Low to High</option>
-                    <option value="High-low">Sort By: Hight to Low</option>
+                    <option value="High-low">Sort By: High to Low</option>
                 </select>
             </div>
 
             {/*Product mapping */}
             <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6'>
-                {
-                    filteredProducts.map((item,index)=>(
-                        <ProductItem key={index} id={item._id} image={item.image} name={item.name} price={item.price} />
-                    ))
-                }       
+                { isLoading ? (
+                    <p>Processing Filters....</p>
+                ) : (
+                    filteredProducts.length > 0 ? (
+                        filteredProducts.map((item,index)=>(
+                            <ProductItem key={index} id={item._id} image={item.image} name={item.name} price={item.price} />
+                        ))
+                    ) : ( <p className='flex justify-between text-base sm:text-2xl mb-4'> No Products found matching your filters!</p>)
+                )}     
             </div>
                 
                     
