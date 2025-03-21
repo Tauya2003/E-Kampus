@@ -2,15 +2,15 @@ import React, {useContext, useEffect, useState }from 'react'
 import { ShopContext } from '../context/ShopContext'
 import { assets } from '../assets/assets'
 import Title from '../components/Title'
-import { use } from 'react'
 import ProductItem from '../components/ProductItem'
 
 
 const Collection = () => {
 
     const { products } = useContext(ShopContext)
+
     const [showFilter, setShowFilter] = useState(false)
-    const [filteredProducts, setFilteredProducts] = useState([])
+    const [filteredProducts, setFilteredProducts] = useState(products || [])
     const [category,setCategory] = useState([])
     const [subCategory,setSubCategory] = useState([])
     const [sortType,setSortType] = useState('relevant')
@@ -73,6 +73,8 @@ const Collection = () => {
 
     useEffect(()=>{
         filterApply()
+        console.log("Selected Categories:", category);
+        console.log("Selected SubCategories:", subCategory);
        },[category,subCategory, sortType]);
 
     return (
