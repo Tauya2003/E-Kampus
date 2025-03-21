@@ -6,7 +6,7 @@ import Bestseller from '../components/Bestseller'
 import Footer from '../components/Footer'
 import Ourpolicy from '../components/Ourpolicy'
 import Newsletter from '../components/Newsletter'
-
+import SearchBar from '../components/SearchBar'
 
 const Home = () => {
   return (

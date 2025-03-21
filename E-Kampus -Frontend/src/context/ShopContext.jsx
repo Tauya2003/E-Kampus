@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React, { createContext, useState } from 'react';
 import { products } from '../assets/assets';
 
 
@@ -7,8 +7,12 @@ const ShopContextProvider = (props) => {
     const total = 10;
     const currency = '$';
     const deliveryFee = total * 0.15;
+    const[search, setSearch] = useState('');
+    const [showSearch, setShowSearch] = useState(false);
+
     const value = {
-        products, currency, deliveryFee
+        products, currency, deliveryFee,
+        search, setSearch, showSearch, setShowSearch
     };
    
   return (
