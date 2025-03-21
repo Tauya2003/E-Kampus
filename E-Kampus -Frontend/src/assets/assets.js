@@ -130,7 +130,7 @@ export const products = [
         price: 15,
         image: [p_img2_1,p_img2_2,p_img2_3,p_img2_4],
         category: "Men",
-        subCategory: "Topwear",
+        subCategory: "Clothes-Men",
         sizes: ["M", "L", "XL"],
         date: 1716621345448,
         bestseller: true
