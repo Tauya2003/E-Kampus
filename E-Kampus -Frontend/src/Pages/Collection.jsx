@@ -7,7 +7,7 @@ import ProductItem from '../components/ProductItem'
 
 const Collection = () => {
 
-    const { products } = useContext(ShopContext)
+    const { products, search, showSearch } = useContext(ShopContext)
 
     const [showFilter, setShowFilter] = useState(false)
     const [filteredProducts, setFilteredProducts] = useState(products || [])
@@ -33,52 +33,50 @@ const Collection = () => {
         }
     }
 
-    const filterApply = () =>{
+    const filterApply = () => {
+        
         setIsLoading(true)
 
-        let productCopy = [...products];
+        let productsCopy = products.slice();
+
+        if (showSearch && search) {
+        {/* Search now working toLowerCase */}    
+            productsCopy = [...productsCopy].filter(item => item.name.toLowerCase().includes(search.toLowerCase()));
+
+        }
 
         if (category.length > 0) {
-            productCopy = productCopy.filter(item => category.includes(item.category));
+            productsCopy = productsCopy.filter(item => category.includes(item.category));
 
         }
 
         if(subCategory.length > 0){
-            productCopy = productCopy.filter(item => subCategory.includes(item.subCategory));
+            productsCopy = productsCopy.filter(item => subCategory.includes(item.subCategory));
         }
 
         switch (sortType) { 
             case 'Low-high':
-                productCopy = [...productCopy].sort((a, b) => a.price - b.price);
+                productsCopy = [...productsCopy].sort((a, b) => a.price - b.price);
                 break;
 
             case 'High-low':
-                productCopy = [...productCopy].sort((a, b) => b.price - a.price);
+                productsCopy = [...productsCopy].sort((a, b) => b.price - a.price);
                 break;
 
             default:
-                productCopy = [...products]; //Reset to default order
+                productsCopy = [...products]; //Reset to default order
                 break;
         }
-        setFilteredProducts(productCopy)
+        setFilteredProducts(productsCopy)
         setIsLoading(false)
     }
 
-   
-
-        
-      
-
-    
-
     useEffect(()=>{
-        filterApply()
-        console.log("Selected Categories:", category);
-        console.log("Selected SubCategories:", subCategory);
-       },[category,subCategory, sortType]);
+        filterApply();
+       },[category,subCategory, sortType, search, showSearch]);
 
     return (
-       <div className='flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t'>
+       <div className='flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t border-gray-50'>
         
         {/* Filter */}
         <div className='min-w-60'>
