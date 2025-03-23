@@ -118,7 +118,7 @@ export const products = [
         price: 25,
         image: [p_img1],
         category: "Women",
-        subCategory: "Topwear",
+        subCategory: "Clothes-Women",
         sizes: ["S", "M", "L"],
         date: 1716634345448,
         bestseller: true
@@ -873,7 +873,7 @@ export const products = [
         price: 9,
         image: [p_img64],
         category: "Men",
-        subCategory: "Men's Shoes",
+        subCategory: "Shoes-Men",
         sizes: ["S", "M", "L", "XL"],
         date: 1716683445448,
         bestseller: true
@@ -885,7 +885,7 @@ export const products = [
         price: 10.75,
         image: [p_img65],
         category: "Women",
-        subCategory: "Women's Shoes",
+        subCategory: "Shoes-Women",
         sizes: ["S", "M", "L", "XL"],
         date: 1716684345448,
         bestseller: true
