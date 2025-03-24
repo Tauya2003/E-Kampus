@@ -17,7 +17,7 @@ const Product = () => {
       if (item._id === productId) {
         setProductData(item)
         setImage(item.image[0])
-        console.log(item)
+        //console.log(item)
         return null
       }
     })
@@ -92,7 +92,9 @@ const Product = () => {
             </div>
 
             {/*--------Related products ---------*/}
-            
+              <div>
+
+              </div>
     </div>
   ) : <div className='opacity-0'></div>
 }
