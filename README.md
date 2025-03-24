@@ -1,1 +1,1 @@
-E-commerce Website application for Univeristy of Zimbabwe
+E-commerce Website application for University of Zimbabwe
