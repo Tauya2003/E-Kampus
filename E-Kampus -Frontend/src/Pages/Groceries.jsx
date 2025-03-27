@@ -4,14 +4,26 @@ import ProductItem from '../components/ProductItem';
 import Title from '../components/Title';
 
 const Groceries = () => {
-  const {products } = useContext(ShopContext)
+  const { products } = useContext(ShopContext)
   const [ groceries,setOurGroceries ] = useState([]);
 
-  useEffect(()=>{
-      if (products) {
-        setOurGroceries(products.slice(52,56))
+
+
+  const filterGroceries = (products) => {
+    let ProductCopy = products.slice();
+    let filterGroceries = []
+
+      if (ProductCopy) {
+
+        filterGroceries = ProductCopy.filter(item => products.category === 'Groceries')//Add filter rather than slice
+        setOurGroceries(filterGroceries)//Add filter rather than slice
       }
-  },[])
+  }
+
+  useEffect(()=>{
+
+      filterGroceries(products)
+  },[products])
 
   return (
     <div className='my-10'>
