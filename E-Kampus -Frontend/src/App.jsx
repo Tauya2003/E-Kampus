@@ -18,10 +18,13 @@ import ElectricalAppliances from './Pages/Electrical-Appliances'
 import Services from './Pages/Services'
 import Collection from './Pages/Collection';
 import SearchBar from './components/SearchBar';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 const App = () => {
   return (
     <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
+      <ToastContainer />
       <Navbar/>
       <SearchBar />
       <Routes>
