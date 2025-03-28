@@ -11,7 +11,7 @@ import CartTotal from '../components/CartTotal'
 
 const Cart = () => {
   
-  const { products, currency, cartItems, updateQuantity} = useContext(ShopContext)
+  const { products, currency, cartItems, updateQuantity, navigate} = useContext(ShopContext)
   const [cartData, setCartData] = useState([])
 
   useEffect(()=> {
@@ -44,10 +44,13 @@ const Cart = () => {
 
               const productData = products.find((product)=> product._id === item._id)
 
+              if (!productData){ return <p>Produxt data not found!</p>
+                }
+
               return (
                 <div key={index} className='py-4  border-t border-b text-gray-700 grid grid-col-[4fr_0.5fr_0.5fr] sm:grid-cols-[4fr_2fr_0.5fr] items-center gap-4'>
                   <div className='flex items-start gap-6'>
-                    <img className='w-16 sm:w-20'src={productData.image[0]} alt="" />
+                    <img onClick={() => navigate(`/product/${productData._id}`)} className='w-16 sm:w-20 cursor-pointer' src={productData.image[0]} alt="" />
                       <div>
                         <p className='text-xs sm:text-lg fomt-medium' >{productData.name}</p>
                         <div className='flex items-center gap-5 mt-2'>
@@ -68,9 +71,12 @@ const Cart = () => {
         <div className='flex justify-end my-20'>
           <div className='w-full sm:w-[450px]'>
               <CartTotal/>
+          
+          <div className='w-full text-end'>
+            <button className='bg-black text-white py-3 px-8 my-8 text-sm active:bg-gray-700 cursor-pointer' onClick={()=>navigate('/place-order')} >PROCEED TO CHECKOUT</button>
           </div>
-        </div>
-
+         </div>
+      </div>
     </div>
   )
 }

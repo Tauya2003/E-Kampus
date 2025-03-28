@@ -1,7 +1,11 @@
 import React from 'react'
 import { assets } from '../assets/assets'
+import { useContext } from 'react'
+import { ShopContext } from '../context/ShopContext'
 
 const Footer = () => {
+   const {navigate} = useContext(ShopContext)
+
   return (
     <div>
         <div className='flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-40 text-sm'>
@@ -15,17 +19,17 @@ const Footer = () => {
 
             <div>
               <p className='text-xl font-medium mb-5'>E-KAMPUS</p>
-              <ul className='flex flex-col gap-1 text-gray-600'>
+              <ul className='flex flex-col gap-1 text-gray-600 cursor-pointer'>
                 <li>Home </li>
                 <li>Delivery </li>
-                <li>About Enactus UZ</li>
+                <li onClick={()=>navigate('/About')} >About Enactus UZ</li>
                 <li>Privacy policy </li>
               </ul>
             </div> 
 
             <div>
               <p className='tex-xl font-medium'>Contact us</p>
-              <ul className='flex flex-col gap-1 text-gray-600'>
+              <ul className='flex flex-col gap-1 text-gray-600 cursor-pointer'>
                 <li>contact@enactus.uz.ac.zw</li>
                 <li>uz.ac.zw</li>
                 <li>+263 78 296 5167</li>
