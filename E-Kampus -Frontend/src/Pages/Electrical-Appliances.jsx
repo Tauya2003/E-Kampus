@@ -10,7 +10,7 @@ const ElectricalAppliances = () => {
 
   useEffect(()=>{
       if (products) {
-        setApplianceProd(products.slice(52,56))  //Add filter rather than slice
+        setApplianceProd(products.slice(60,63))  //Add filter rather than slice
       }
   },[])
 

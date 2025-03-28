@@ -9,7 +9,8 @@ const Groceries = () => {
 
 
 
-  const filterGroceries = (products) => {
+  const filterGroceries = () => {
+
     let ProductCopy = products.slice();
     let filterGroceries = []
 
