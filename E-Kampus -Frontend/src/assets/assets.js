@@ -1,3 +1,4 @@
+
 import p_img1 from './p_img1.png'
 import p_img2_1 from './p_img2_1.png'
 import p_img2_2 from './p_img2_2.png'
@@ -67,7 +68,7 @@ import p_img63 from './p_img63.png'
 import p_img64 from './p_img64.png'
 import p_img65 from './p_img65.png'
 
-
+import Hero from './Hero.png'
 import E_logo from './Ekampus_logo_old.png'
 import logo from './logo.png'
 import hero_img from './hero_img.png'
@@ -91,6 +92,7 @@ import ecocash_logo from './ecocash_logo.png'
 import innbucks_logo from './innbucks_logo.png'
 
 export const assets = {
+    Hero,
     innbucks_logo,
     ecocash_logo,
     logo,

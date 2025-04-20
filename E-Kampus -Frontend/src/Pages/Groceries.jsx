@@ -9,7 +9,7 @@ const Groceries = () => {
 
 
 
-  const filterGroceries = () => {
+  {/* const filterGroceries = () => {
 
     let ProductCopy = products.slice();
     let filterGroceries = []
@@ -20,18 +20,20 @@ const Groceries = () => {
         setOurGroceries(filterGroceries)//Add filter rather than slice
       }
   }
+  */}
 
   useEffect(()=>{
-
-      filterGroceries(products)
-  },[products])
+      if (products) {
+        setOurGroceries(products.slice(53,56))  //Add filter rather than slice
+      }
+  },[])
 
   return (
     <div className='my-10'>
         <div className='text-center py-8 text-3xl'>
             <Title text1={'OUR'} text2={'GROCERIES'}/>
             <p className='w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600'>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, quo laudantium nemo inventore cupiditate optio hic blanditiis quas minima, sint, officiis cum praesentium quis natus nisi dolorem quam doloribus deserunt.
+            A Collection of Grocery products. Best greens that the UZ farm can offer!
             </p>
         </div>
 

@@ -7,13 +7,13 @@ const Newsletter = () => {
     }
   return (
     <div className='text-center py-15'> 
-        <p className='text-2xl font-medium text-gray-800'>Subcribe now and get 15% off</p>
+        <p className='text-2xl font-medium text-gray-800'>Subscribe now and get 15% off</p>
         <p className='text-gray-400 mt-3'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Et harum a iste laboriosam.
+            Subcribe to our weekly Newsletter now and get 15% off your next purchase!
         </p>
         <form onSubmit={onSubmitHandler} className='w-full sm:w-1/2 flex items-center gap-3 mx-auto my-6 border pl-3'>
             <input className='w-full sm:flex-1 outline-none' type="email" placeholder='Enter your email' required />
-            <button type='submit' className='bg-black text-white text-xs px-10 py-4 cursor-pointer'>SUBCRIBE</button>
+            <button type='submit' className='bg-black text-white text-xs px-10 py-4 cursor-pointer'>SUBSCRIBE</button>
         </form>
     </div>
   )

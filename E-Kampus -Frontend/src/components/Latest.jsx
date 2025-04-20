@@ -22,7 +22,7 @@ const Latest = () => {
         <div className='text-center py-8 text-3xl'>
             <Title text1={'LATEST'} text2={'ARRIVALS'}/>
             <p className='w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600'>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, quo laudantium nemo inventore cupiditate optio hic blanditiis quas minima, sint, officiis cum praesentium quis natus nisi dolorem quam doloribus deserunt.
+             Latest Arrivals of our products. We are always updating our stock with the latest and greatest products to ensure you have the best shopping experience possible.
             </p>
         </div>
 
