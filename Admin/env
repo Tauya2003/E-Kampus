@@ -1,1 +1,4 @@
 BackendUrl = /////
+regUrl = https://towidhonza.softwarez.co.zw/accounts/register/
+logUrl = https://towidhonza.softwarez.co.zw/accounts/login/
+logOuturl = https://towidhonza.softwarez.co.zw/accounts/logout/

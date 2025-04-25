@@ -11,6 +11,9 @@ import { Routes,Route } from 'react-router-dom'
 
 //export const backendURL = import.meta
 
+export const regUrl = 'https://towidhonza.softwarez.co.zw/accounts/register/'
+export const logUrl = 'https://towidhonza.softwarez.co.zw/accounts/login/'
+
 const App = () => {
 
   const [token, setToken ] = useState(localStorage.getItem('token')?localStorage.getItem('token'): '1')
@@ -26,10 +29,10 @@ const App = () => {
 
     <div className='bg-gray-50 min-h-screen'>
       <ToastContainer/>
-        {token === ""
-          ? <Login setToken={setToken} />
-          : <> 
-          <Navbar setToken={setToken} />
+        
+           <Login  />
+          
+          <Navbar />
           <hr />
             <div className='flex w-full'>
               <Sidebar/>
@@ -41,8 +44,8 @@ const App = () => {
                 </Routes>
               </div>
             </div>
-          </>
-        }
+          
+        
     </div>
   )
 }

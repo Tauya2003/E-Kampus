@@ -3,6 +3,7 @@ import axios from 'axios'
 import { NavLink, Link } from 'react-router-dom'
 import Navbar from './Navbar'
 import Title from './Title'
+import { logUrl } from '../App'
 
 const Login = () => {
     const [email,setEmail ] = useState('')
@@ -11,8 +12,8 @@ const Login = () => {
     const onSubmitHandler = async (e) => {
         try {
             e.preventDefault()
-            //const response = await axios.post(backendURL + '/api/user/admin',{email,password})
-            //console.log(response)
+            const response = await axios.post(logUrl + '/api/user/admin',{email,password})
+            console.log(response)
             {/*if (response.data.success) {
                 setToken(response.data.token)
                 } else {
