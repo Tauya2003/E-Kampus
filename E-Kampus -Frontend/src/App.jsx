@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Home from './Pages/Home';
 import Groceries from './Pages/Groceries'
@@ -14,21 +14,38 @@ import ResetPassword from './Pages/ResetPassword'
 import Navbar from './components/Navbar'
 import Women from './Pages/Women'
 import Men from './Pages/Men'
+import BLUR from './components/BLUR'
+import Jojo from './Pages/Jojo';
+import Accoms from './Pages/Accoms';
 import ElectricalAppliances from './Pages/Electrical-Appliances'
 import Services from './Pages/Services'
 import Collection from './Pages/Collection';
+import Food from './Pages/Food';
 import SearchBar from './components/SearchBar';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 
 const App = () => {
+  const [token, setToken ] = useState('')
+    
+   
+    useEffect(()=>{
+        localStorage.setItem('token', token)
+    }, [token])
+
   return (
+
+    
+
     <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
       <ToastContainer />
-      <Navbar/>
+      {/*<BLUR />*/}
+      <Navbar  />
       <SearchBar />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/Food' element={<Food />} />
+        <Route path='/Accoms' element={<Accoms />} />
         <Route path='/Groceries' element={<Groceries />} />
         <Route path='/Men' element={<Men />} />
         <Route path='/Collection' element={<Collection />} />
@@ -37,6 +54,7 @@ const App = () => {
         <Route path='place-order' element={<PlaceOrder />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/Login' element={<Login />} />
+        <Route path='/Jojo' element={<Jojo />} />
         <Route path='/Register' element={<Register />} />
         <Route path='/ForgotPassword' element={<ForgotPassword />} />
         <Route path='/ResetPassword' element={<ResetPassword />} />

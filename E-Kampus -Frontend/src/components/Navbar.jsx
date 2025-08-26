@@ -22,11 +22,19 @@ const Navbar = () => {
                 <p>HOME</p>
                 <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
             </NavLink>
-            <NavLink to='/Collection' className='flex flex-col items-center gap-1'>
-                <p>COLLECTION</p>
+            <NavLink to='/Food' className='flex flex-col items-center gap-1'>
+                <p>FOOD</p>
                 <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
             </NavLink>
-            <NavLink to='/Men' className='flex flex-col items-center gap-1 '>
+            <NavLink to='/Accoms' className='flex flex-col items-center gap-1'>
+                <p>ACCOMODATION</p>
+                <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
+            </NavLink>
+            <NavLink to='/Collection' className='flex flex-col items-center gap-1'>
+                <p>UZ MARKETPLACE</p>
+                <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
+            </NavLink>
+           {/* <NavLink to='/Men' className='flex flex-col items-center gap-1 '>
                 <p>MEN</p>
                 <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
             </NavLink>
@@ -45,7 +53,7 @@ const Navbar = () => {
             <NavLink to='/Services' className='flex flex-col items-center gap-1'>
                 <p>SERVICES</p>
                 <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
-            </NavLink>
+            </NavLink>*/}
         </ul>
 
         <div className='flex items-center gap-6'>
@@ -71,20 +79,22 @@ const Navbar = () => {
         </div>
 
         {/*Sibar Menu for small screens*/}
-        <div className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white transition-all ${visible ? 'w-full' : 'w-0'}`}>
-                <div className='flex flex-col text-gray-600'>
+        <div className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white active:bg-gray-400  transition-all ${visible ? 'w-full' : 'w-0'}`}>
+                <div className='flex flex-col text-gray-600 '>
                     <div onClick={()=>setVisible(false)} className='flex items-center gap-4 p-3 cursor-pointer'>
                         <img src={assets.dropdown_icon} alt="" className='hidden group-hover:block transition-all duration-300 ease-out absolute right-0 pt-4'  aria-label='Back'/>
                         <p>Back</p>
                     </div>
 
                     <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/'>HOME</NavLink>
-                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/Collection'>COLLECTION</NavLink>
-                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/Men'>MEN</NavLink>
+                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/Food'>FOOD</NavLink>
+                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/Accoms'>ACCOMODATION</NavLink>
+                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/Collection'>UZ MARKETPLACE</NavLink>
+                    {/*<NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/Men'>MEN</NavLink>
                     <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/Women'>WOMEN</NavLink>
                     <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/ElectricalAppliances'>ELECTRICAL & APPLIANCES</NavLink>
                     <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/Groceries'>GROCERIES</NavLink>
-                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/Services'>SERVICES</NavLink>
+                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/Services'>SERVICES</NavLink>*/}
 
                 </div>
         </div>

@@ -3,6 +3,7 @@ import { products } from '../assets/assets';
 import { useEffect } from 'react';
 import { toast} from 'react-toastify'
 import { useNavigate } from 'react-router-dom';
+import AxiosApiService from '../services/axiosApiService';
 
 
 
@@ -13,7 +14,36 @@ const ShopContextProvider = (props) => {
     const[search, setSearch] = useState('', false);
     const [showSearch, setShowSearch] = useState(false);
     const [cartItems, setCartItems] = useState([])
+    const [apiProducts, setApiProducts] = useState([])
+    const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
+
+    // Fetch products from API
+    const fetchProducts = async () => {
+        try {
+            setLoading(true)
+            const response = await AxiosApiService.getProducts()
+            if (response && response.products) {
+                setApiProducts(response.products)
+            } else if (response && Array.isArray(response)) {
+                setApiProducts(response)
+            }
+        } catch (error) {
+            console.error('Failed to fetch products:', error)
+            toast.error('Failed to load products')
+            // Fallback to static products if API fails
+            setApiProducts(products)
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    // Use API products if available, otherwise fallback to static products
+    const allProducts = apiProducts.length > 0 ? apiProducts : products
+
+    useEffect(() => {
+        fetchProducts()
+    }, [])
 
     const addToCart = async (itemId,size) => {
       if (!size) {
@@ -74,7 +104,7 @@ const ShopContextProvider = (props) => {
 
       for(const items in cartItems) {
 
-        let itemInfo = products.find((product) => product._id === items)
+        let itemInfo = allProducts.find((product) => product._id === items)
         
         for (const item in cartItems[items]) {
           try {
@@ -91,9 +121,9 @@ const ShopContextProvider = (props) => {
     }
 
     const value = {
-        products, currency, deliveryFee,
+        products: allProducts, currency, deliveryFee,
         search, setSearch, showSearch, setShowSearch, cartItems, addToCart,
-        getCartCount, updateQuantity, getCartAmount, navigate
+        getCartCount, updateQuantity, getCartAmount, navigate, loading, fetchProducts
     };
    
   return (

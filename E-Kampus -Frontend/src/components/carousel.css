@@ -1,0 +1,57 @@
+/* Custom styles for the product carousel */
+.product-carousel .carousel-root {
+  outline: none;
+}
+
+.product-carousel .carousel .slide {
+  background: transparent;
+  padding: 0 10px;
+}
+
+.product-carousel .carousel .control-arrow {
+  display: none;
+}
+
+.product-carousel .carousel .carousel-status {
+  display: none;
+}
+
+.product-carousel .carousel .control-dots {
+  margin: 10px 0 0 0;
+}
+
+.product-carousel .carousel .control-dots .dot {
+  background: rgba(59, 130, 246, 0.3);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin: 0 5px;
+  transition: all 0.3s ease;
+}
+
+.product-carousel .carousel .control-dots .dot.selected {
+  background: rgba(59, 130, 246, 1);
+  transform: scale(1.2);
+}
+
+.carousel-slide {
+  padding-bottom: 10px;
+}
+
+.carousel-slide .bg-white {
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.carousel-slide .bg-white:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 20px -5px rgba(0, 0, 0, 0.1), 0 8px 8px -5px rgba(0, 0, 0, 0.04);
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
+@media (max-width: 768px) {
+  .carousel-slide .bg-white {
+    margin: 0 3px;
+    padding: 12px;
+  }
+}

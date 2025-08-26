@@ -1,17 +1,21 @@
 import React from 'react'
 import {Routes,Route } from 'react-router-dom'
 import Hero from '../components/Hero'
+import ProductCarousel from '../components/carousel'
 import Latest from '../components/Latest'
 import Bestseller from '../components/Bestseller'
 import Footer from '../components/Footer'
 import Ourpolicy from '../components/Ourpolicy'
 import Newsletter from '../components/Newsletter'
 import SearchBar from '../components/SearchBar'
+import BLUR from  '../components/BLUR'
 
 const Home = () => {
   return (
-    <div>
-      <Hero />
+    <div className=''>
+      {/*<BLUR />*/}
+      {/*<Hero />*/}
+      <ProductCarousel />
       <Latest />
       <Bestseller />
       <Ourpolicy/>

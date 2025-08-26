@@ -67,6 +67,8 @@ import p_img62 from './p_img62.png'
 import p_img63 from './p_img63.png'
 import p_img64 from './p_img64.png'
 import p_img65 from './p_img65.png'
+import MUSHA from './MUSHA.png'
+import MONLY from './MALESONLY.png'
 
 import Hero from './Hero.png'
 import E_logo from './Ekampus_logo_old.png'
@@ -113,8 +115,12 @@ export const assets = {
     contact_img,
     razorpay_logo,
     stripe_logo,
-    cross_icon
+    cross_icon,
+    MUSHA,
+    MONLY,
+
 };
+
 
 export const products = [
     {
