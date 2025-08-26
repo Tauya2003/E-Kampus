@@ -16,38 +16,37 @@ export const logUrl = 'https://towidhonza.softwarez.co.zw/accounts/login/'
 
 const App = () => {
 
-  const [token, setToken ] = useState(localStorage.getItem('token')?localStorage.getItem('token'): '1')
+  const [token, setToken ] = useState('')
   
-
-  useEffect(()=>{
-      localStorage.setItem('token', token)
-  }, [token])
+ 
+  //useEffect(()=>{
+  //    localStorage.setItem('token', token)
+ // }, [token])
 
   
   return (
-
-
-    <div className='bg-gray-50 min-h-screen'>
-      <ToastContainer/>
+    
+      <div className='bg-gray-50  min-h-screen transition-colors duration-300'>
         
-           <Login  />
+        
+        <Login /> 
           
-          <Navbar />
-          <hr />
+            <Navbar />
+            <hr className='border-gray-200 dark:border-gray-700' />
             <div className='flex w-full'>
               <Sidebar/>
               <div className='mx-auto my-8 ml-[max[5vw,25px]] text-gray-600 text-base w-[70%]'>
                 <Routes>
-                  <Route path='/Add'  element={<Add token={token} />} />
-                  <Route path='/List' element={<List token={token} />} />
-                  <Route path='/Orders' element={<Orders token={token} />} />
+                  <Route path='/Add' element={<Add />} />
+                  <Route path='/List' element={<List />}/>
+                  <Route path='/Orders' element={<Orders />} />
                 </Routes>
               </div>
-            </div>
-          
-        
+            </div> 
     </div>
-  )
+      
+      )
+    
 }
 
 export default App

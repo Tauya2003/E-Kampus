@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { assets } from '../assets/assets'
 import Title from '../Components/Title'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const Add = () => {
 
@@ -17,9 +19,37 @@ const Add = () => {
   const [Bseller,setBestseller] = useState(false)
   const [sizes,setSizes] = useState([])
 
+  const onSubmitHandler = async (e) => {
+    e.preventDefault()
+
+    try{
+
+    const formData = new FormData()
+
+    image1 && formData.append('image1', image1)
+    image2 && formData.append('image2', image2)
+    image3 && formData.append('image3', image3)
+    image4 && formData.append('image4', image4)
+
+    formData.append('name', name)
+    formData.append('description', descript)
+    formData.append('price', price)
+    formData.append('category', category)
+    formData.append('subcategory', subcategory)
+    formData.append('bestseller', Bseller)
+    formData.append('sizes',JSON.stringify(sizes))
+
+    console.log(...formData)
+    const response = await axios.post('https://towidhonza.softwarez.co.zw/api/add/', formData)
+    console.log(response.data)
+  } catch(error) {
+
+    }
+  }
+
 
   return (
-    <form className='flex flex-col w-full items-start gap-3'>
+    <form onSubmit={onSubmitHandler} className='flex flex-col w-full items-start gap-3'>
       <div>
       <div className='text-l'>
             <Title text1={'UPLOAD'} text2={'IMAGES (4)'}/>
@@ -69,7 +99,7 @@ const Add = () => {
             <Title text1={'PRODUCT'} text2={'CATERGORY'}/>
         </div>
           
-          <select onChange={(e)=>setCategory(e.target.value)} className='cursor-pointer w-full px-3 py-2' >
+          <select onChange={(e)=>setCategory(e.target.value)} value={category} className='cursor-pointer w-full px-3 py-2' >
             <option className='cursor-pointer' value="Men">Men</option>
             <option className='cursor-pointer' value="Women">Women</option>
             <option className='cursor-pointer' value="Electricals">Electrical & Appliances</option>
@@ -82,7 +112,7 @@ const Add = () => {
             <Title text1={'PRODUCT'} text2={'SUB-CATERGORY'}/>
         </div>
           
-          <select onChange={(e)=>setSubCategory(e.target.value)} className=' cursor-pointer w-full px-3 py-2'>
+          <select onChange={(e)=>setSubCategory(e.target.value)} value={subcategory} className=' cursor-pointer w-full px-3 py-2'>
             <option className='cursor-pointer' value="Shoes-Men">Men Shoes</option>
             <option className='cursor-pointer' value="Shoes-Women">Women Shoes</option>
             <option className='cursor-pointer' value="Clothes-Men">Men's Clothes</option>
@@ -110,35 +140,35 @@ const Add = () => {
         </div>
           
         <div className='flex gap-3' required>
-          <div>
-            <p className='bg-slate-200 px-3 py-1 cursor-pointer'>S</p>
+          <div onClick={()=>setSizes(prev => prev.includes("S") ? prev.filter( item => item !== "S") : [...prev, "S"])} className='cursor-pointer'>
+            <p className={`${sizes.includes("S") ? "bg-pink-100": "bg-slate-200" } px-3 py-1 cursor-pointer`}>S</p>
           </div>
-          <div>
-            <p className='bg-slate-200 px-3 py-1 cursor-pointer'>M</p>
+          <div onClick={()=>setSizes(prev => prev.includes("M") ? prev.filter( item => item !== "M") : [...prev, "M"])} >
+            <p className={`${sizes.includes("M") ? "bg-pink-100": "bg-slate-200" } px-3 py-1 cursor-pointer`}>M</p>
           </div>
-          <div>
-            <p className='bg-slate-200 px-3 py-1 cursor-pointer'>L</p>
+          <div onClick={()=>setSizes(prev => prev.includes("L") ? prev.filter( item => item !== "L") : [...prev, "L"])} >
+            <p className={`${sizes.includes("L") ? "bg-pink-100": "bg-slate-200" } px-3 py-1 cursor-pointer`}>L</p>
           </div>
-          <div>
-            <p className='bg-slate-200 px-3 py-1 cursor-pointer'>XL</p>
+          <div onClick={()=>setSizes(prev => prev.includes("XL") ? prev.filter( item => item !== "XL") : [...prev, "XL"])} >
+            <p className={`${sizes.includes("XL") ? "bg-pink-100": "bg-slate-200" } px-3 py-1 cursor-pointer`}>XL</p>
           </div>
-          <div>
-            <p className='bg-slate-200 px-3 py-1 cursor-pointer'>XXL</p>
+          <div onClick={()=>setSizes(prev => prev.includes("XXL") ? prev.filter( item => item !== "XXL") : [...prev, "XXL"])} >
+            <p className={`${sizes.includes("XXL") ? "bg-pink-100": "bg-slate-200" } px-3 py-1 cursor-pointer`}>XXL</p>
           </div>
-          <div>
-            <p className='bg-slate-200 px-3 py-1 cursor-pointer'>500g</p>
+          <div onClick={()=>setSizes(prev => prev.includes("500G") ? prev.filter( item => item !== "500G") : [...prev, "500G"])} >
+            <p className={`${sizes.includes("500G") ? "bg-pink-300": "bg-slate-200" } px-3 py-1 cursor-pointer`}>500g</p>
           </div>
-          <div>
-            <p className='bg-slate-200 px-3 py-1 cursor-pointer'>1Kg</p>
+          <div onClick={()=>setSizes(prev => prev.includes("1KG") ? prev.filter( item => item !== "1KG") : [...prev, "1KG"])} >
+            <p className={`${sizes.includes("1KG") ? "bg-pink-300": "bg-slate-200" } px-3 py-1 cursor-pointer`}>1Kg</p>
           </div>
-          <div>
-            <p className='bg-slate-200 px-3 py-1 cursor-pointer'>2Kg</p>
+          <div onClick={()=>setSizes(prev => prev.includes("2KG") ? prev.filter( item => item !== "2KG") : [...prev, "2KG"])} >
+            <p className={`${sizes.includes("2KG") ? "bg-pink-300": "bg-slate-200" } px-3 py-1 cursor-pointer`}>2Kg</p>
           </div>
         </div>
       </div>
 
       <div className='flex gap-2 mt-2'>
-        <input type="checkbox"  id="bestseller" />
+        <input onClick={()=> setBestseller(prev => !prev)}  type="checkbox"  id="bestseller" />
         <label className='cursor-pointer' htmlFor="bestseller">Add to Bestseller</label>
       </div>
 
