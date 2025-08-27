@@ -48,7 +48,7 @@ const Loading = ({
       <div className="fixed inset-0 bg-white/80 backdrop-blur-sm flex items-center justify-center z-50">
         <div className="text-center">
           {spinner}
-          {text && <p className="mt-4 text-neutral-600">{text}</p>}
+          {text && <p className="mt-4 text-gray-600">{text}</p>}
         </div>
       </div>
     );
