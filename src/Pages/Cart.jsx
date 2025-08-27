@@ -32,7 +32,7 @@ const Cart = () => {
     setCartData(tempData)
   }, [cartItems])
   return (
-    <div className='border-t pt-14'>
+    <div className='container-padding py-8 border-t'>
 
         <div className='text-2xl mb-3'>
           <Title text1={'YOUR'} text2={'CART'}/>
