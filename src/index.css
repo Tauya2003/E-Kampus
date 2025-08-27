@@ -1,186 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Prata&display=swap');
 @import "tailwindcss";
 
-/* Theme configuration for Tailwind v4 */
-@theme {
-  --color-primary-50: #eff6ff;
-  --color-primary-100: #dbeafe;
-  --color-primary-200: #bfdbfe;
-  --color-primary-300: #93c5fd;
-  --color-primary-400: #60a5fa;
-  --color-primary-500: #3b82f6;
-  --color-primary-600: #2563eb;
-  --color-primary-700: #1d4ed8;
-  --color-primary-800: #1e40af;
-  --color-primary-900: #1e3a8a;
-
-  --color-campus-50: #fff7ed;
-  --color-campus-100: #ffedd5;
-  --color-campus-200: #fed7aa;
-  --color-campus-300: #fdba74;
-  --color-campus-400: #fb923c;
-  --color-campus-500: #f97316;
-  --color-campus-600: #ea580c;
-  --color-campus-700: #c2410c;
-  --color-campus-800: #9a3412;
-  --color-campus-900: #7c2d12;
+a.active hr{
+    display: block;
 }
 
-a.active hr {
-  display: block;
+*{
+    font-family: 'Outfit';
 }
 
-* {
-  font-family: 'Outfit', ui-sans-serif, system-ui;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  @apply text-gray-800 bg-gray-50;
-}
-
-/* Improved focus styles for accessibility */
-:focus-visible {
-  @apply outline-2 outline-blue-500 outline-offset-2;
-}
-
-/* Hide scrollbar but keep functionality */
-::-webkit-scrollbar {
-  display: none;
-}
-
-/* Firefox */
-* {
-  scrollbar-width: none;
-}
-
-/* Prata font utility */
 .prata-regular {
-  font-family: "Prata", serif;
-  font-weight: 400;
-  font-style: normal;
+    font-family: "Prata", serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
-/* Card hover effects */
-.card-hover {
-  @apply transform transition-all duration-300 hover:scale-105 hover:shadow-lg;
+::-webkit-scrollbar{
+    display: none;
 }
 
-/* Product card base styling */
-.product-card {
-  @apply bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 p-4 group;
+/* Focus-visible improvements */
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 
-/* Button animations */
-.btn-animated {
-  @apply transform transition-all duration-200 active:scale-95;
+button:hover, a:hover {
+  filter: brightness(0.95);
 }
 
-/* Button variants */
-.btn-primary {
-  @apply bg-blue-500 hover:bg-blue-600 text-white font-medium py-2.5 px-6 rounded-xl transition-all duration-200 shadow-sm hover:shadow-md focus:ring-4 focus:ring-blue-200;
-}
-
-.btn-secondary {
-  @apply bg-green-500 hover:bg-green-600 text-white font-medium py-2.5 px-6 rounded-xl transition-all duration-200 shadow-sm hover:shadow-md focus:ring-4 focus:ring-green-200;
-}
-
-.btn-campus {
-  @apply bg-orange-500 hover:bg-orange-600 text-white font-medium py-2.5 px-6 rounded-xl transition-all duration-200 shadow-sm hover:shadow-md focus:ring-4 focus:ring-orange-200;
-}
-
-.btn-outline {
-  @apply border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-medium py-2 px-6 rounded-xl transition-all duration-200 focus:ring-4 focus:ring-blue-200;
-}
-
-.btn-ghost {
-  @apply text-blue-500 hover:bg-blue-50 font-medium py-2.5 px-6 rounded-xl transition-all duration-200 focus:ring-4 focus:ring-blue-200;
-}
-
-/* Card base styling */
-.card-base {
-  @apply bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300;
-}
-
-/* Input base styling */
-.input-base {
-  @apply w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-4 focus:ring-blue-200 focus:border-blue-500 transition-all duration-200 bg-white;
-}
-
-/* Loading skeleton */
-.skeleton {
-  @apply animate-pulse bg-gray-200 rounded;
-}
-
-/* Badge styles */
-.badge {
-  @apply inline-flex items-center justify-center px-2 py-1 text-xs font-medium rounded-full;
-}
-
-.badge-primary {
-  @apply badge bg-blue-100 text-blue-700;
-}
-
-.badge-success {
-  @apply badge bg-green-100 text-green-700;
-}
-
-.badge-warning {
-  @apply badge bg-yellow-100 text-yellow-700;
-}
-
-.badge-error {
-  @apply badge bg-red-100 text-red-700;
-}
-
-/* Image optimization */
-.img-optimized {
-  @apply object-cover transition-transform duration-300;
-}
-
-.img-hover-zoom {
-  @apply img-optimized group-hover:scale-110;
-}
-
-/* Text utilities */
-.text-balance {
-  text-wrap: balance;
-}
-
-/* Responsive spacing */
-.container-padding {
-  @apply px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16;
-}
-
-/* Glass morphism effect */
-.glass {
-  @apply bg-white/20 backdrop-blur-sm border border-white/30;
-}
-
-/* Student-friendly hover effects */
-.hover-lift {
-  @apply transform transition-all duration-200 hover:-translate-y-1 hover:shadow-lg;
-}
-
-.hover-glow {
-  @apply transition-all duration-300;
-}
-
-.hover-glow-campus {
-  @apply transition-all duration-300;
-}
-
-/* Mobile-specific styles */
-@media (max-width: 640px) {
-  a.active {
-    @apply bg-blue-500 text-white px-3 py-1 rounded-lg;
-  }
-
-  /* Better mobile touch targets */
-  button, a {
-    @apply min-h-[44px] min-w-[44px];
-  }
+@media (max-width:640px) {
+    a.active{
+        background-color: black;
+        color: white;
+    }
 }
