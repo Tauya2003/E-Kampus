@@ -10,26 +10,26 @@ const Card = forwardRef(({
   ...props 
 }, ref) => {
   
-  const baseClasses = 'card-base';
-  
+  const baseClasses = 'bg-white rounded-2xl shadow-sm transition-all duration-300';
+
   const variants = {
-    default: 'bg-white border border-gray-200',
-    elevated: 'bg-white shadow-lg',
-    flat: 'bg-white border border-gray-200 shadow-none',
-    glass: 'glass',
+    default: 'border border-gray-200',
+    elevated: 'shadow-lg',
+    flat: 'border border-gray-200 shadow-none',
+    glass: 'bg-white/20 backdrop-blur-sm border border-white/30',
     gradient: 'bg-gradient-to-br from-blue-50 to-green-50 border border-blue-100'
   };
-  
+
   const paddings = {
     none: 'p-0',
     sm: 'p-3',
-    md: 'p-4', 
+    md: 'p-4',
     lg: 'p-6',
     xl: 'p-8'
   };
-  
-  const interactiveClasses = interactive ? 'card-hover cursor-pointer' : '';
-  
+
+  const interactiveClasses = interactive ? 'hover:shadow-lg hover:scale-105 cursor-pointer' : '';
+
   const classes = `
     ${baseClasses}
     ${variants[variant]}
