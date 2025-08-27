@@ -23,9 +23,9 @@ const Input = forwardRef(({
   const baseClasses = 'input-base';
   
   const variants = {
-    default: 'border-neutral-300 focus:border-primary-500 focus:ring-primary-200',
-    error: 'border-error-500 focus:border-error-500 focus:ring-error-200',
-    success: 'border-success-500 focus:border-success-500 focus:ring-success-200'
+    default: 'border-gray-300 focus:border-blue-500 focus:ring-blue-200',
+    error: 'border-red-500 focus:border-red-500 focus:ring-red-200',
+    success: 'border-green-500 focus:border-green-500 focus:ring-green-200'
   };
   
   const sizes = {
