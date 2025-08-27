@@ -22,7 +22,6 @@ const Home = () => {
         <Ourpolicy/>
         <Newsletter/>
       </div>
-      <Footer />
     </div>
   )
 }
