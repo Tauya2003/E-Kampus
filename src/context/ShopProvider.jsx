@@ -11,6 +11,8 @@ const ShopProvider = (props) => {
     const [search, setSearch] = useState('')
     const [showSearch, setShowSearch] = useState(false)
     const [cartItems, setCartItems] = useState([])
+    const [wishlistItems, setWishlistItems] = useState([])
+    const [showWishlist, setShowWishlist] = useState(false)
     const [apiProducts, setApiProducts] = useState([])
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
@@ -118,5 +120,3 @@ const ShopProvider = (props) => {
 }
 
 export default ShopProvider
-
-
