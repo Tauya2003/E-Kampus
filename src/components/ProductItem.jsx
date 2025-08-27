@@ -43,7 +43,7 @@ const ProductItem = ({ id, image, name, price, originalPrice, discount, category
         padding="none"
       >
         {/* Image Container */}
-        <div className="relative overflow-hidden aspect-square bg-neutral-100">
+        <div className="relative overflow-hidden aspect-square bg-gray-100">
           {/* Loading skeleton */}
           {!imageLoaded && (
             <div className="absolute inset-0 skeleton" />
