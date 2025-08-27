@@ -20,12 +20,12 @@ const Input = forwardRef(({
   const isPasswordType = type === 'password';
   const inputType = isPasswordType && showPassword ? 'text' : type;
   
-  const baseClasses = 'input-base';
-  
+  const baseClasses = 'w-full px-4 py-3 rounded-xl focus:ring-4 transition-all duration-200 bg-white';
+
   const variants = {
-    default: 'border-gray-300 focus:border-blue-500 focus:ring-blue-200',
-    error: 'border-red-500 focus:border-red-500 focus:ring-red-200',
-    success: 'border-green-500 focus:border-green-500 focus:ring-green-200'
+    default: 'border border-gray-300 focus:border-blue-500 focus:ring-blue-200',
+    error: 'border border-red-500 focus:border-red-500 focus:ring-red-200',
+    success: 'border border-green-500 focus:border-green-500 focus:ring-green-200'
   };
   
   const sizes = {
