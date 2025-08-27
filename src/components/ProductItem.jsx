@@ -52,7 +52,7 @@ const ProductItem = ({ id, image, name, price, originalPrice, discount, category
           <img
             src={image?.[0] || '/placeholder-product.jpg'}
             alt={name}
-            className={`w-full h-full img-hover-zoom transition-opacity duration-300 ${
+            className={`w-full h-full object-cover group-hover:scale-110 transition-all duration-300 ${
               imageLoaded ? 'opacity-100' : 'opacity-0'
             }`}
             onLoad={() => setImageLoaded(true)}
