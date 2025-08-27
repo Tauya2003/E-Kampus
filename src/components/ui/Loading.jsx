@@ -116,7 +116,7 @@ const SkeletonProductGrid = ({ count = 8, className = '' }) => (
 const SkeletonList = ({ count = 5, className = '' }) => (
   <div className={`space-y-4 ${className}`}>
     {Array.from({ length: count }).map((_, i) => (
-      <div key={i} className="flex items-center gap-4 p-4 card-base">
+      <div key={i} className="flex items-center gap-4 p-4 bg-white rounded-2xl shadow-sm">
         <Skeleton className="w-16 h-16 rounded-lg" />
         <div className="flex-1">
           <Skeleton className="h-5 w-3/4 mb-2" />
