@@ -121,24 +121,24 @@ const ProductItem = ({ id, image, name, price, originalPrice, discount, category
 
         {/* Product Info */}
         <div className="p-4">
-          <h3 className="font-medium text-neutral-900 text-sm mb-2 line-clamp-2 group-hover:text-primary-500 transition-colors duration-200">
+          <h3 className="font-medium text-gray-900 text-sm mb-2 line-clamp-2 group-hover:text-blue-500 transition-colors duration-200">
             {name}
           </h3>
 
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <span className="font-bold text-primary-600">
+              <span className="font-bold text-blue-600">
                 {currency}{price}
               </span>
               {originalPrice && originalPrice > price && (
-                <span className="text-xs text-neutral-500 line-through">
+                <span className="text-xs text-gray-500 line-through">
                   {currency}{originalPrice}
                 </span>
               )}
             </div>
 
             {!inStock && (
-              <span className="text-xs text-error-500 font-medium">
+              <span className="text-xs text-red-500 font-medium">
                 Unavailable
               </span>
             )}
@@ -149,7 +149,7 @@ const ProductItem = ({ id, image, name, price, originalPrice, discount, category
             <div className="flex text-yellow-400">
               {'★'.repeat(4)}{'☆'.repeat(1)}
             </div>
-            <span className="text-xs text-neutral-500">(4.0)</span>
+            <span className="text-xs text-gray-500">(4.0)</span>
           </div>
         </div>
       </Card>
