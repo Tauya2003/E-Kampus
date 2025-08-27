@@ -173,7 +173,7 @@ const ImageWithLoading = ({
   return (
     <div className="relative">
       {loading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-neutral-100">
+        <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
           <Loading size="sm" variant="neutral" />
         </div>
       )}
