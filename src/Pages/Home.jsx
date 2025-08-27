@@ -12,14 +12,16 @@ import BLUR from  '../components/BLUR'
 
 const Home = () => {
   return (
-    <div className=''>
+    <div className='min-h-screen'>
       {/*<BLUR />*/}
       {/*<Hero />*/}
-      <ProductCarousel />
-      <Latest />
-      <Bestseller />
-      <Ourpolicy/>
-      <Newsletter/>
+      <div className='container-padding py-8'>
+        <ProductCarousel />
+        <Latest />
+        <Bestseller />
+        <Ourpolicy/>
+        <Newsletter/>
+      </div>
       <Footer />
     </div>
   )
