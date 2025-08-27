@@ -98,7 +98,7 @@ const ProductItem = ({ id, image, name, price, originalPrice, discount, category
               aria-label="View product details"
               onClick={(e) => e.stopPropagation()}
             >
-              <BiEye className="w-4 h-4" />
+              <BiShow className="w-4 h-4" />
             </Link>
           </div>
 
