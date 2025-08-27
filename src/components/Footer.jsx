@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import ShopContext from '../context/ShopContext'
 import { Button } from './ui'
 import { BiEnvelope, BiPhone, BiGlobe, BiMap, BiHeart } from 'react-icons/bi'
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaWhatsapp } from 'react-icons/fa'
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaWhatsapp, FaHome, FaAppleAlt, FaBed, FaShoppingBag, FaInfoCircle } from 'react-icons/fa'
 
 const Footer = () => {
   const { navigate } = useContext(ShopContext)
@@ -12,12 +12,13 @@ const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   const quickLinks = [
-    { label: 'Home', path: '/', icon: '🏠' },
-    { label: 'Food & Snacks', path: '/Food', icon: '🍔' },
-    { label: 'Accommodation', path: '/Accoms', icon: '🏠' },
-    { label: 'Marketplace', path: '/Collection', icon: '🛍️' },
-    { label: 'About Us', path: '/About', icon: 'ℹ️' }
+  { path: '/', label: 'Home', icon: <FaHome /> },
+    { path: '/Food', label: 'Food', icon: <FaAppleAlt /> },
+    { path: '/Accoms', label: 'Accommodation', icon: <FaBed /> },
+    { path: '/Collection', label: 'UZ Marketplace', icon: <FaShoppingBag /> },
+    { label: 'About Us', path: '/About', icon: <FaInfoCircle /> }
   ]
+
 
   const studentServices = [
     { label: 'Campus Delivery', description: 'Free delivery on campus' },
@@ -47,7 +48,7 @@ const Footer = () => {
               <img
                 src={assets.E_logo}
                 alt="E-Kampus Logo"
-                className="h-12 w-auto brightness-0 invert"
+                className="h-12 w-auto object-contain"
               />
             </Link>
 

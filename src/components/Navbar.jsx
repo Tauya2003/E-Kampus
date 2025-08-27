@@ -3,7 +3,8 @@ import { assets } from '../assets/assets'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import ShopContext from '../context/ShopContext'
 import { Badge, Button } from './ui'
-import { BiSearch, BiUser, BiShoppingBag, BiMenu, BiX } from 'react-icons/bi'
+import { BiSearch, BiUser, BiShoppingBag, BiMenu, BiX,   } from 'react-icons/bi'
+import { FaAppleAlt, FaBed, FaShoppingBag, FaHome } from 'react-icons/fa'
 
 const Navbar = () => {
   const [mobileMenuVisible, setMobileMenuVisible] = useState(false)
@@ -11,10 +12,10 @@ const Navbar = () => {
   const location = useLocation()
 
   const navigationItems = [
-    { path: '/', label: 'Home', icon: '🏠' },
-    { path: '/Food', label: 'Food', icon: '🍔' },
-    { path: '/Accoms', label: 'Accommodation', icon: '🏠' },
-    { path: '/Collection', label: 'UZ Marketplace', icon: '🛍️' }
+    { path: '/', label: 'Home', icon: <FaHome /> },
+    { path: '/Food', label: 'Food', icon: <FaAppleAlt /> },
+    { path: '/Accoms', label: 'Accommodation', icon: <FaBed /> },
+    { path: '/Collection', label: 'UZ Marketplace', icon: <FaShoppingBag /> }
   ]
 
   const toggleMobileMenu = () => {
@@ -38,7 +39,7 @@ const Navbar = () => {
               <img
                 src={assets.E_logo}
                 alt="E-Kampus Logo"
-                className="h-8 md:h-10 w-auto"
+                className="h-8 md:h-12 w-auto"
               />
             </Link>
 
