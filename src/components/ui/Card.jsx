@@ -13,11 +13,11 @@ const Card = forwardRef(({
   const baseClasses = 'card-base';
   
   const variants = {
-    default: 'bg-white border border-neutral-200',
-    elevated: 'bg-white shadow-moderate',
-    flat: 'bg-white border border-neutral-200 shadow-none',
+    default: 'bg-white border border-gray-200',
+    elevated: 'bg-white shadow-lg',
+    flat: 'bg-white border border-gray-200 shadow-none',
     glass: 'glass',
-    gradient: 'bg-gradient-to-br from-primary-50 to-secondary-50 border border-primary-100'
+    gradient: 'bg-gradient-to-br from-blue-50 to-green-50 border border-blue-100'
   };
   
   const paddings = {
