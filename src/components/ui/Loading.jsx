@@ -130,9 +130,9 @@ const SkeletonList = ({ count = 5, className = '' }) => (
 
 // Loading states for different components
 const LoadingButton = ({ children, loading, ...props }) => (
-  <button 
+  <button
     disabled={loading}
-    className="btn-primary relative"
+    className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2.5 px-6 rounded-xl transition-all duration-200 relative"
     {...props}
   >
     {loading && (
