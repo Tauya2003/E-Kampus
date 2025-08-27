@@ -17,10 +17,10 @@ const Collection = () => {
   const [viewMode, setViewMode] = useState('grid') // 'grid' or 'list'
 
   const categories = [
-    { value: 'Men', label: 'Men\'s Items', icon: '👨' },
-    { value: 'Women', label: 'Women\'s Items', icon: '👩' },
-    { value: 'Electricals-Appliances', label: 'Electronics & Appliances', icon: '📱' },
-    { value: 'Groceries', label: 'Groceries', icon: '🛒' }
+    { value: 'Men', label: 'Men\'s Items'},
+    { value: 'Women', label: 'Women\'s Items' },
+    { value: 'Electricals-Appliances', label: 'Electronics & Appliances' },
+    { value: 'Groceries', label: 'Groceries' }
   ]
 
   const subCategories = [
@@ -201,7 +201,6 @@ const Collection = () => {
                         onChange={() => toggleCategory(cat.value)}
                         className="w-4 h-4 text-primary-500 border-neutral-300 rounded focus:ring-primary-200"
                       />
-                      <span className="text-lg">{cat.icon}</span>
                       <span className="text-sm text-neutral-700 flex-1">{cat.label}</span>
                     </label>
                   ))}

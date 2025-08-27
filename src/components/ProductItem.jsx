@@ -39,7 +39,7 @@ const ProductItem = ({ id, image, name, price, originalPrice, discount, category
     <Link to={`/product/${id}`} className="block group">
       <Card
         interactive
-        className="relative overflow-hidden group"
+        className="relative overflow-hidden group rounded-none"
         padding="none"
       >
         {/* Image Container */}
@@ -103,9 +103,9 @@ const ProductItem = ({ id, image, name, price, originalPrice, discount, category
           </div>
 
           {/* Quick add to cart on hover */}
-          <div className="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+          <div className="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 px-5">
             <Button
-              variant="primary"
+              variant="campus"
               size="sm"
               fullWidth
               disabled={!inStock || addingToCart}

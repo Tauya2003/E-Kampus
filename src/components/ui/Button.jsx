@@ -14,12 +14,13 @@ const Button = forwardRef(({
   ...props 
 }, ref) => {
   
-  const baseClasses = 'inline-flex items-center justify-center font-medium rounded-xl transition-all duration-200 focus:outline-none focus:ring-4 disabled:opacity-50 disabled:cursor-not-allowed transform active:scale-95';
+  const baseClasses = 'inline-flex items-center justify-center font-medium rounded-none transition-all duration-200 focus:outline-none focus:ring-4 disabled:opacity-50 disabled:cursor-not-allowed transform active:scale-95';
 
   const variants = {
     primary: 'bg-blue-500 hover:bg-blue-600 text-white shadow-sm hover:shadow-md focus:ring-blue-200',
     secondary: 'bg-green-500 hover:bg-green-600 text-white shadow-sm hover:shadow-md focus:ring-green-200',
     campus: 'bg-orange-500 hover:bg-orange-600 text-white shadow-sm hover:shadow-md focus:ring-orange-200',
+    black: 'bg-black hover:bg-gray-800 text-white shadow-sm hover:shadow-md focus:ring-black-200',
     outline: 'border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white focus:ring-blue-200',
     ghost: 'text-blue-500 hover:bg-blue-50 focus:ring-blue-200',
     danger: 'bg-red-500 hover:bg-red-600 text-white shadow-sm hover:shadow-md focus:ring-red-200',
