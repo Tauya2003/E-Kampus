@@ -11,6 +11,8 @@ const ShopProvider = (props) => {
     const [search, setSearch] = useState('')
     const [showSearch, setShowSearch] = useState(false)
     const [cartItems, setCartItems] = useState([])
+    const [wishlistItems, setWishlistItems] = useState([])
+    const [showWishlist, setShowWishlist] = useState(false)
     const [apiProducts, setApiProducts] = useState([])
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
@@ -92,6 +94,29 @@ const ShopProvider = (props) => {
         return totalAmount
     }
 
+    const addToWishlist = (itemId) => {
+        const wishlistData = [...wishlistItems]
+        if (!wishlistData.includes(itemId)) {
+            wishlistData.push(itemId)
+            setWishlistItems(wishlistData)
+            toast.success('Added to wishlist!')
+        }
+    }
+
+    const removeFromWishlist = (itemId) => {
+        const wishlistData = wishlistItems.filter(id => id !== itemId)
+        setWishlistItems(wishlistData)
+        toast.success('Removed from wishlist!')
+    }
+
+    const isInWishlist = (itemId) => {
+        return wishlistItems.includes(itemId)
+    }
+
+    const getWishlistCount = () => {
+        return wishlistItems.length
+    }
+
     const value = {
         products: allProducts,
         currency,
@@ -105,6 +130,13 @@ const ShopProvider = (props) => {
         getCartCount,
         updateQuantity,
         getCartAmount,
+        wishlistItems,
+        showWishlist,
+        setShowWishlist,
+        addToWishlist,
+        removeFromWishlist,
+        isInWishlist,
+        getWishlistCount,
         navigate,
         loading,
         fetchProducts,
@@ -118,5 +150,3 @@ const ShopProvider = (props) => {
 }
 
 export default ShopProvider
-
-

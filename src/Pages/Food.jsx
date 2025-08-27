@@ -25,7 +25,7 @@ const Food = () => {
   }, [products])
 
   return (
-    <div className='my-10'>
+    <div className='container-padding py-8'>
       {/* Food Specials Slider */}
       <FoodSpecialSlider /> 
       

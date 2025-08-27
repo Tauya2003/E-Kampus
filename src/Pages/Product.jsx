@@ -29,7 +29,7 @@ const Product = () => {
   }, [fetchPData])
 
   return productData ? (
-    <div className='border-t-2 pt-10 transition-opacity duration-500 opacity-100'>
+    <div className='container-padding py-8 border-t transition-opacity duration-500 opacity-100'>
         {/*Prod-Data*/}
         <div className='flex gap-12 sm:gap-12 flex-col sm:flex-row'>
 
