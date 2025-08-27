@@ -69,9 +69,9 @@ const Skeleton = ({
   ...props 
 }) => {
   const variants = {
-    default: 'bg-neutral-200',
-    light: 'bg-neutral-100',
-    dark: 'bg-neutral-300'
+    default: 'bg-gray-200',
+    light: 'bg-gray-100',
+    dark: 'bg-gray-300'
   };
 
   return (
