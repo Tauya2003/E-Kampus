@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import ShopContext from '../context/ShopContext'
 import { Link } from 'react-router-dom'
 import { Card, Button, Badge } from './ui'
-import { BiHeart, BiShoppingBag, BiEye } from 'react-icons/bi'
+import { BiHeart, BiShoppingBag, BiShow } from 'react-icons/bi'
 
 const ProductItem = ({ id, image, name, price, originalPrice, discount, category, inStock = true }) => {
   const { currency, addToCart } = useContext(ShopContext)
