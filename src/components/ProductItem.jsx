@@ -62,7 +62,7 @@ const ProductItem = ({ id, image, name, price, originalPrice, discount, category
           {/* Badges */}
           <div className="absolute top-3 left-3 flex flex-col gap-2">
             {!inStock && (
-              <Badge variant="neutral" size="sm" className="bg-neutral-800 text-white">
+              <Badge variant="neutral" size="sm" className="bg-gray-800 text-white">
                 Out of Stock
               </Badge>
             )}
