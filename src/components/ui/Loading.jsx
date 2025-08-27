@@ -16,11 +16,11 @@ const Loading = ({
   };
 
   const variants = {
-    primary: 'text-primary-500',
-    secondary: 'text-secondary-500',
-    campus: 'text-campus-500',
+    primary: 'text-blue-500',
+    secondary: 'text-green-500',
+    campus: 'text-orange-500',
     white: 'text-white',
-    neutral: 'text-neutral-500'
+    neutral: 'text-gray-500'
   };
 
   const spinner = (
