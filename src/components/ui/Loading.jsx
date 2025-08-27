@@ -57,7 +57,7 @@ const Loading = ({
   return (
     <div className="flex items-center justify-center gap-3">
       {spinner}
-      {text && <span className="text-neutral-600">{text}</span>}
+      {text && <span className="text-gray-600">{text}</span>}
     </div>
   );
 };
