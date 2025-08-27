@@ -94,7 +94,7 @@ const ProductItem = ({ id, image, name, price, originalPrice, discount, category
 
             <Link
               to={`/product/${id}`}
-              className="p-2 rounded-full bg-white/90 text-neutral-600 hover:bg-white hover:text-primary-500 transition-all duration-200"
+              className="p-2 rounded-full bg-white/90 text-gray-600 hover:bg-white hover:text-blue-500 transition-all duration-200"
               aria-label="View product details"
               onClick={(e) => e.stopPropagation()}
             >
