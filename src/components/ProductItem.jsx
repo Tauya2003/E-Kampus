@@ -84,8 +84,8 @@ const ProductItem = ({ id, image, name, price, originalPrice, discount, category
               onClick={handleLikeToggle}
               className={`p-2 rounded-full transition-all duration-200 ${
                 isLiked
-                  ? 'bg-error-500 text-white shadow-glow'
-                  : 'bg-white/90 text-neutral-600 hover:bg-white hover:text-error-500'
+                  ? 'bg-red-500 text-white shadow-lg'
+                  : 'bg-white/90 text-gray-600 hover:bg-white hover:text-red-500'
               }`}
               aria-label={isLiked ? 'Remove from favorites' : 'Add to favorites'}
             >
