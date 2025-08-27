@@ -1,105 +1,239 @@
-import React from 'react'
-import {assets } from '../assets/assets'
-import { Link, NavLink } from 'react-router-dom'
-import { useState, useContext } from 'react'
+import React, { useState, useContext } from 'react'
+import { assets } from '../assets/assets'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import ShopContext from '../context/ShopContext'
-
+import { Badge, Button } from './ui'
+import { BiSearch, BiUser, BiShoppingBag, BiMenu, BiX } from 'react-icons/bi'
 
 const Navbar = () => {
+  const [mobileMenuVisible, setMobileMenuVisible] = useState(false)
+  const { setShowSearch, getCartCount, navigate } = useContext(ShopContext)
+  const location = useLocation()
 
-    const [visible,setVisible] = useState(false);
-    const { setShowSearch, getCartCount, navigate } = useContext(ShopContext)
+  const navigationItems = [
+    { path: '/', label: 'Home', icon: '🏠' },
+    { path: '/Food', label: 'Food', icon: '🍔' },
+    { path: '/Accoms', label: 'Accommodation', icon: '🏠' },
+    { path: '/Collection', label: 'UZ Marketplace', icon: '🛍️' }
+  ]
+
+  const toggleMobileMenu = () => {
+    setMobileMenuVisible(!mobileMenuVisible)
+  }
+
+  const handleSearchClick = () => {
+    setShowSearch(true)
+  }
+
+  const cartCount = getCartCount()
 
   return (
-    <div className='flex justify-between items-center py-4 font-medium'>
-        
-        <Link to='/' className='relative'>
-        <img src={assets.E_logo} alt='logo' className='w-38 cursor-pointer' aria-label='logo'/>
-        </Link>
+    <>
+      <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-neutral-200 shadow-soft">
+        <div className="container-padding">
+          <div className="flex justify-between items-center py-4">
 
-        <ul className='hidden sm:flex gap-5 text-sm text-gray-700'>
-            <NavLink to='/' className='flex flex-col items-center gap-1'>
-                <p>HOME</p>
-                <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
-            </NavLink>
-            <NavLink to='/Food' className='flex flex-col items-center gap-1'>
-                <p>FOOD</p>
-                <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
-            </NavLink>
-            <NavLink to='/Accoms' className='flex flex-col items-center gap-1'>
-                <p>ACCOMODATION</p>
-                <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
-            </NavLink>
-            <NavLink to='/Collection' className='flex flex-col items-center gap-1'>
-                <p>UZ MARKETPLACE</p>
-                <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
-            </NavLink>
-           {/* <NavLink to='/Men' className='flex flex-col items-center gap-1 '>
-                <p>MEN</p>
-                <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
-            </NavLink>
-            <NavLink to='/Women' className='flex flex-col items-center gap-1'>
-                <p>WOMEN</p>
-                <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
-            </NavLink>
-            <NavLink to='/ElectricalAppliances' className='flex flex-col items-center gap-1'>
-                <p>APPLIANCES</p>
-                <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
-            </NavLink>
-            <NavLink to='/Groceries' className='flex flex-col items-center gap-1 '>
-                <p>GROCERIES</p>
-                <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
-            </NavLink>
-            <NavLink to='/Services' className='flex flex-col items-center gap-1'>
-                <p>SERVICES</p>
-                <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
-            </NavLink>*/}
-        </ul>
+            {/* Logo */}
+            <Link to="/" className="flex items-center hover-lift">
+              <img
+                src={assets.E_logo}
+                alt="E-Kampus Logo"
+                className="h-8 md:h-10 w-auto"
+              />
+            </Link>
 
-        <div className='flex items-center gap-6'>
-                <img onClick={() => setShowSearch(true)} src={assets.search_icon} alt="" className='w-5 cursor-pointer' />
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center space-x-8" role="navigation">
+              {navigationItems.map((item) => (
+                <NavLink
+                  key={item.path}
+                  to={item.path}
+                  className={({ isActive }) => `
+                    relative flex flex-col items-center gap-1 py-2 px-3 rounded-lg transition-all duration-200
+                    ${isActive
+                      ? 'text-primary-600 bg-primary-50'
+                      : 'text-neutral-700 hover:text-primary-600 hover:bg-primary-50'
+                    }
+                  `}
+                >
+                  <span className="flex items-center gap-2 font-medium text-sm">
+                    <span className="text-base">{item.icon}</span>
+                    {item.label}
+                  </span>
+                  <hr className="w-6 border-none h-0.5 bg-primary-500 opacity-0 transition-opacity duration-200" />
+                </NavLink>
+              ))}
+            </nav>
 
-                <div className="group relative">
-                    <Link to='/Login'>
-                    <img src={assets.profile_icon} aria-label='Profile' alt="profile-icon" className="w-5 cursor-pointer" />
-                    </Link>
-                    <div className="hidden group-hover:block transition duration-200 ease-in-out absolute right-0 pt-4">
-                        <div className='flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded'>
-                            <p onClick={()=>navigate('/Login')} className='cursor-pointer hover:text-black'>My Profile</p>
-                            <p onClick={()=>navigate('/orders')} className='cursor-pointer hover:text-black'>Orders</p>
-                            <p onClick={()=>navigate('/')} className='cursor-pointer hover:text-black'>Logout</p>
-                        </div>
-                    </div>
-                </div>
-                <Link to='/Cart' className='relative'>
-                    <img src={assets.cart_icon} aria-label='Cart' alt="cart-icon" className="w-5 min-w-5" />
-                        <p className='absolute right-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[10px]'>{getCartCount()}</p>                
+            {/* Desktop Actions */}
+            <div className="hidden sm:flex items-center gap-4">
+
+              {/* Search Button */}
+              <button
+                onClick={handleSearchClick}
+                className="p-2 rounded-xl text-neutral-600 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200"
+                aria-label="Search products"
+              >
+                <BiSearch className="w-5 h-5" />
+              </button>
+
+              {/* Profile Dropdown */}
+              <div className="group relative">
+                <Link
+                  to="/Login"
+                  className="p-2 rounded-xl text-neutral-600 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200 flex items-center"
+                  aria-label="User profile"
+                >
+                  <BiUser className="w-5 h-5" />
                 </Link>
-                <img onClick={() => setVisible(true)} src={assets.menu_icon} alt="" aria-label='Menu' className='w-5 cursor-pointer sm:hidden' />
-        </div>
 
-        {/*Sibar Menu for small screens*/}
-        <div className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white active:bg-gray-400  transition-all ${visible ? 'w-full' : 'w-0'}`}>
-                <div className='flex flex-col text-gray-600 '>
-                    <div onClick={()=>setVisible(false)} className='flex items-center gap-4 p-3 cursor-pointer'>
-                        <img src={assets.dropdown_icon} alt="" className='hidden group-hover:block transition-all duration-300 ease-out absolute right-0 pt-4'  aria-label='Back'/>
-                        <p>Back</p>
-                    </div>
-
-                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/'>HOME</NavLink>
-                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/Food'>FOOD</NavLink>
-                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/Accoms'>ACCOMODATION</NavLink>
-                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/Collection'>UZ MARKETPLACE</NavLink>
-                    {/*<NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/Men'>MEN</NavLink>
-                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/Women'>WOMEN</NavLink>
-                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/ElectricalAppliances'>ELECTRICAL & APPLIANCES</NavLink>
-                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/Groceries'>GROCERIES</NavLink>
-                    <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/Services'>SERVICES</NavLink>*/}
-
+                {/* Dropdown Menu */}
+                <div className="absolute right-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                  <div className="bg-white rounded-xl shadow-moderate border border-neutral-200 py-2 w-48 animate-fade-in">
+                    <button
+                      onClick={() => navigate('/Login')}
+                      className="w-full px-4 py-2 text-left text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-600 transition-colors duration-200"
+                    >
+                      My Profile
+                    </button>
+                    <button
+                      onClick={() => navigate('/orders')}
+                      className="w-full px-4 py-2 text-left text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-600 transition-colors duration-200"
+                    >
+                      Orders
+                    </button>
+                    <hr className="my-1 border-neutral-200" />
+                    <button
+                      onClick={() => navigate('/')}
+                      className="w-full px-4 py-2 text-left text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-600 transition-colors duration-200"
+                    >
+                      Logout
+                    </button>
+                  </div>
                 </div>
-        </div>
+              </div>
 
-    </div>
+              {/* Cart Button */}
+              <Link
+                to="/Cart"
+                className="relative p-2 rounded-xl text-neutral-600 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200"
+                aria-label={`Shopping cart with ${cartCount} items`}
+              >
+                <BiShoppingBag className="w-5 h-5" />
+                <Badge.Cart count={cartCount} />
+              </Link>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={toggleMobileMenu}
+              className="sm:hidden p-2 rounded-xl text-neutral-600 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200"
+              aria-label="Toggle mobile menu"
+              aria-expanded={mobileMenuVisible}
+            >
+              {mobileMenuVisible ? <BiX className="w-6 h-6" /> : <BiMenu className="w-6 h-6" />}
+            </button>
+
+            {/* Mobile Actions (Search & Cart) */}
+            <div className="flex sm:hidden items-center gap-2 ml-2">
+              <button
+                onClick={handleSearchClick}
+                className="p-2 rounded-xl text-neutral-600 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200"
+                aria-label="Search products"
+              >
+                <BiSearch className="w-5 h-5" />
+              </button>
+
+              <Link
+                to="/Cart"
+                className="relative p-2 rounded-xl text-neutral-600 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200"
+                aria-label={`Shopping cart with ${cartCount} items`}
+              >
+                <BiShoppingBag className="w-5 h-5" />
+                <Badge.Cart count={cartCount} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Mobile Menu Overlay */}
+      {mobileMenuVisible && (
+        <div
+          className="fixed inset-0 z-40 lg:hidden"
+          onClick={toggleMobileMenu}
+        >
+          <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" />
+        </div>
+      )}
+
+      {/* Mobile Menu */}
+      <div className={`
+        fixed top-0 right-0 z-50 h-full w-80 max-w-full bg-white shadow-strong transform transition-transform duration-300 lg:hidden
+        ${mobileMenuVisible ? 'translate-x-0' : 'translate-x-full'}
+      `}>
+        <div className="flex flex-col h-full">
+
+          {/* Mobile Menu Header */}
+          <div className="flex items-center justify-between p-4 border-b border-neutral-200">
+            <h2 className="text-lg font-semibold text-neutral-900">Menu</h2>
+            <button
+              onClick={toggleMobileMenu}
+              className="p-2 rounded-xl text-neutral-600 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200"
+              aria-label="Close menu"
+            >
+              <BiX className="w-6 h-6" />
+            </button>
+          </div>
+
+          {/* Mobile Navigation */}
+          <nav className="flex-1 py-4" role="navigation">
+            {navigationItems.map((item) => (
+              <NavLink
+                key={item.path}
+                to={item.path}
+                onClick={toggleMobileMenu}
+                className={({ isActive }) => `
+                  flex items-center gap-3 px-6 py-4 text-base border-b border-neutral-100 transition-all duration-200
+                  ${isActive
+                    ? 'bg-primary-50 text-primary-600 border-l-4 border-l-primary-500'
+                    : 'text-neutral-700 hover:bg-primary-50 hover:text-primary-600'
+                  }
+                `}
+              >
+                <span className="text-xl">{item.icon}</span>
+                {item.label}
+              </NavLink>
+            ))}
+          </nav>
+
+          {/* Mobile Menu Footer */}
+          <div className="border-t border-neutral-200 p-4 space-y-2">
+            <Button
+              variant="outline"
+              fullWidth
+              onClick={() => {
+                navigate('/Login')
+                toggleMobileMenu()
+              }}
+              icon={<BiUser className="w-4 h-4" />}
+            >
+              My Profile
+            </Button>
+            <Button
+              variant="ghost"
+              fullWidth
+              onClick={() => {
+                navigate('/orders')
+                toggleMobileMenu()
+              }}
+            >
+              Orders
+            </Button>
+          </div>
+        </div>
+      </div>
+    </>
   )
 }
 
