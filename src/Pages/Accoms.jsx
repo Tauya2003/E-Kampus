@@ -5,7 +5,7 @@ import Card from '../components/Card'
 
 const Accoms = () => {
   return (
-   <div className='flex flex-col items-center'>
+   <div className='container-padding py-8 flex flex-col items-center'>
         <Title text1={'CAMPUS'} text2={'ACCOMMODATION'}/>
         <div className='w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600'>
         <p>Offering the best accomodation for our Students!</p>
