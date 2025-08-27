@@ -14,13 +14,13 @@ const Badge = forwardRef(({
   
   const variants = {
     primary: 'badge-primary',
-    secondary: 'bg-secondary-100 text-secondary-700',
-    campus: 'bg-campus-100 text-campus-700',
+    secondary: 'bg-green-100 text-green-700',
+    campus: 'bg-orange-100 text-orange-700',
     success: 'badge-success',
-    warning: 'badge-warning', 
+    warning: 'badge-warning',
     error: 'badge-error',
-    neutral: 'bg-neutral-100 text-neutral-700',
-    dark: 'bg-neutral-800 text-white'
+    neutral: 'bg-gray-100 text-gray-700',
+    dark: 'bg-gray-800 text-white'
   };
   
   const sizes = {
