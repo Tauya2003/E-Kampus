@@ -3,7 +3,7 @@ import ShopContext from '../context/ShopContext'
 import Title from '../components/Title'
 import ProductItem from '../components/ProductItem'
 import { Card, Button, Badge } from '../components/ui'
-import { BiFilter, BiX, BiChevronDown, BiGrid, BiList } from 'react-icons/bi'
+import { BiFilter, BiX } from 'react-icons/bi'
 
 const Collection = () => {
   const { products, search, showSearch } = useContext(ShopContext)
