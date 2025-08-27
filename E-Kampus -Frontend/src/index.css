@@ -10,6 +10,8 @@ a.active hr{
     font-family: 'Outfit';
 }
 
+/* Theme base removed */
+
 .prata-regular {
     font-family: "Prata", serif;
     font-weight: 400;
@@ -20,7 +22,17 @@ a.active hr{
     display: none;
    
   }
-  
+
+/* Focus-visible improvements */
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+button:hover, a:hover {
+  filter: brightness(0.95);
+}
+
 @media (max-width:640px) {
     a.active{
         background-color: black;

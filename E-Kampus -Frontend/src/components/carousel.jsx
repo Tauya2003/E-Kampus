@@ -10,7 +10,6 @@ import { BiShoppingBag } from "react-icons/bi";
 
 // Direct imports for product images
 import p_img1 from '../assets/p_img1.png';
-import p_img3 from '../assets/p_img3.png';
 import p_img4 from '../assets/p_img4.png';
 import p_img5 from '../assets/p_img5.png';
 import p_img6 from '../assets/p_img6.png';

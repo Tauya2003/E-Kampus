@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { ShopContext } from '../context/ShopContext';
+import ShopContext from '../context/ShopContext';
 import ProductItem from '../components/ProductItem';
 import Title from '../components/Title';
 
@@ -13,7 +13,7 @@ const Women = () => {
           if (products) {
             setWomen(products.slice(24,27))  //Add filter Men clothing  rather than slice
           }
-      },[])
+      },[products])
     
     
 

@@ -1,14 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { ShopContext } from '../context/ShopContext'
+import ShopContext from '../context/ShopContext'
 import { Link } from 'react-router-dom'
 import ProductItem from '../components/ProductItem'
 import Title from '../components/Title'
 import FoodSpecialSlider from '../components/FoodSpecialSlider'
 
 const Food = () => {
-  const { products } = useContext(ShopContext)
+  const { products, loading } = useContext(ShopContext)
   const [foodProducts, setFoodProducts] = useState([])
-  const [loading, setLoading] = useState(false)
+  
 
   useEffect(() => {
     if (products) {

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { ShopContext } from '../context/ShopContext'
+import ShopContext from '../context/ShopContext'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import AxiosApiService from '../services/axiosApiService'

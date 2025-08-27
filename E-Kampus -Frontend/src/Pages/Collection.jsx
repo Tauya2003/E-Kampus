@@ -1,5 +1,5 @@
-import React, {useContext, useEffect, useState }from 'react'
-import { ShopContext } from '../context/ShopContext'
+import React, {useContext, useEffect, useState, useCallback }from 'react'
+import ShopContext from '../context/ShopContext'
 import { assets } from '../assets/assets'
 import Title from '../components/Title'
 import ProductItem from '../components/ProductItem'
@@ -33,7 +33,7 @@ const Collection = () => {
         }
     }
 
-    const filterApply = () => {
+    const filterApply = useCallback(() => {
         
         setIsLoading(true)
 
@@ -69,11 +69,11 @@ const Collection = () => {
         }
         setFilteredProducts(productsCopy)
         setIsLoading(false)
-    }
+    }, [products, showSearch, search, category, subCategory, sortType])
 
     useEffect(()=>{
         filterApply();
-       },[category,subCategory, sortType, search, showSearch]);
+       },[filterApply]);
 
     return (
        <div className='flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t border-gray-50'>

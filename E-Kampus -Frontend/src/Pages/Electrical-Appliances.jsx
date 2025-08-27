@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { ShopContext } from '../context/ShopContext';
+import ShopContext from '../context/ShopContext';
 import ProductItem from '../components/ProductItem';
 import Title from '../components/Title';
 
@@ -12,7 +12,7 @@ const ElectricalAppliances = () => {
       if (products) {
         setApplianceProd(products.slice(60,63))  //Add filter rather than slice
       }
-  },[])
+  },[products])
 
   return (
     <div className='my-10'>

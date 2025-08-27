@@ -3,7 +3,7 @@ import Title from '../components/Title'
 import { assets } from '../assets/assets'
 import { useState } from 'react'
 import { useContext } from 'react'
-import { ShopContext } from '../context/ShopContext'
+import ShopContext from '../context/ShopContext'
 import CartTotal from '../components/CartTotal'
 
 const PlaceOrder = () => {

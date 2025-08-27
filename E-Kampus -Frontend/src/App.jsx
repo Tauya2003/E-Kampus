@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Home from './Pages/Home';
 import Groceries from './Pages/Groceries'
@@ -22,16 +22,11 @@ import Services from './Pages/Services'
 import Collection from './Pages/Collection';
 import Food from './Pages/Food';
 import SearchBar from './components/SearchBar';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 
 const App = () => {
-  const [token, setToken ] = useState('')
-    
-   
-    useEffect(()=>{
-        localStorage.setItem('token', token)
-    }, [token])
+  
 
   return (
 

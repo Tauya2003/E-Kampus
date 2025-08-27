@@ -12,6 +12,9 @@ node_modules/
 *node_modules
 *.local
 
+# Build output
+dist/
+
 # UI folder
 public/UI/
 

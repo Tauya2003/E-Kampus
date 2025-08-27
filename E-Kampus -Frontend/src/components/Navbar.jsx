@@ -2,13 +2,13 @@ import React from 'react'
 import {assets } from '../assets/assets'
 import { Link, NavLink } from 'react-router-dom'
 import { useState, useContext } from 'react'
-import { ShopContext } from '../context/ShopContext'
+import ShopContext from '../context/ShopContext'
 
 
 const Navbar = () => {
 
     const [visible,setVisible] = useState(false);
-    const {showSearch ,setShowSearch, getCartCount, navigate} = useContext(ShopContext)
+    const { setShowSearch, getCartCount, navigate } = useContext(ShopContext)
 
   return (
     <div className='flex justify-between items-center py-4 font-medium'>
