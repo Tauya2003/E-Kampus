@@ -39,7 +39,7 @@ const ProductItem = ({ id, image, name, price, originalPrice, discount, category
     <Link to={`/product/${id}`} className="block group">
       <Card
         interactive
-        className="product-card relative overflow-hidden"
+        className="relative overflow-hidden group"
         padding="none"
       >
         {/* Image Container */}
