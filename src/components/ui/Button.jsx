@@ -18,12 +18,12 @@ const Button = forwardRef(({
   
   const variants = {
     primary: 'btn-primary',
-    secondary: 'btn-secondary', 
+    secondary: 'btn-secondary',
     campus: 'btn-campus',
     outline: 'btn-outline',
     ghost: 'btn-ghost',
-    danger: 'bg-error-500 hover:bg-error-600 text-white shadow-soft hover:shadow-moderate focus:ring-error-200',
-    success: 'bg-success-500 hover:bg-success-600 text-white shadow-soft hover:shadow-moderate focus:ring-success-200'
+    danger: 'bg-red-500 hover:bg-red-600 text-white shadow-sm hover:shadow-md focus:ring-red-200',
+    success: 'bg-green-500 hover:bg-green-600 text-white shadow-sm hover:shadow-md focus:ring-green-200'
   };
   
   const sizes = {
