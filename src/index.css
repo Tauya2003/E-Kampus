@@ -1,41 +1,146 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Prata&display=swap');
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+@layer base {
+  * {
+    font-family: 'Outfit', ui-sans-serif, system-ui;
+  }
 
-a.active hr{
-    display: block;
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply text-neutral-800 bg-neutral-50;
+  }
+
+  /* Improved focus styles for accessibility */
+  :focus-visible {
+    @apply outline-2 outline-primary-500 outline-offset-2;
+  }
+
+  /* Hide scrollbar but keep functionality */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: none;
+  }
 }
 
-*{
-    font-family: 'Outfit';
-}
+@layer components {
+  /* Active navigation state */
+  a.active hr {
+    @apply block;
+  }
 
-/* Theme base removed */
-
-.prata-regular {
+  /* Prata font utility */
+  .prata-regular {
     font-family: "Prata", serif;
     font-weight: 400;
     font-style: normal;
   }
 
-  ::-webkit-scrollbar{
-    display: none;
-   
+  /* Card hover effects */
+  .card-hover {
+    @apply transform transition-all duration-300 hover:scale-105 hover:shadow-moderate;
   }
 
-/* Focus-visible improvements */
-:focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: 2px;
+  /* Product card base styling */
+  .product-card {
+    @apply card-base p-4 card-hover group;
+  }
+
+  /* Button animations */
+  .btn-animated {
+    @apply transform transition-all duration-200 active:scale-95;
+  }
+
+  /* Loading skeleton */
+  .skeleton {
+    @apply animate-pulse bg-neutral-200 rounded;
+  }
+
+  /* Badge styles */
+  .badge {
+    @apply inline-flex items-center justify-center px-2 py-1 text-xs font-medium rounded-full;
+  }
+
+  .badge-primary {
+    @apply badge bg-primary-100 text-primary-700;
+  }
+
+  .badge-success {
+    @apply badge bg-success-100 text-success-700;
+  }
+
+  .badge-warning {
+    @apply badge bg-warning-100 text-warning-700;
+  }
+
+  .badge-error {
+    @apply badge bg-error-100 text-error-700;
+  }
+
+  /* Image optimization */
+  .img-optimized {
+    @apply object-cover transition-transform duration-300;
+  }
+
+  .img-hover-zoom {
+    @apply img-optimized group-hover:scale-110;
+  }
 }
 
-button:hover, a:hover {
-  filter: brightness(0.95);
+@layer utilities {
+  /* Text utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Responsive spacing */
+  .container-padding {
+    @apply px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16;
+  }
+
+  /* Glass morphism effect */
+  .glass {
+    @apply bg-white/20 backdrop-blur-sm border border-white/30;
+  }
+
+  /* Student-friendly hover effects */
+  .hover-lift {
+    @apply transform transition-all duration-200 hover:-translate-y-1 hover:shadow-moderate;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-glow;
+  }
+
+  .hover-glow-campus {
+    @apply transition-all duration-300 hover:shadow-glow-campus;
+  }
 }
 
-@media (max-width:640px) {
-    a.active{
-        background-color: black;
-        color: white;
-    }
+/* Mobile-specific styles */
+@media (max-width: 640px) {
+  a.active {
+    @apply bg-primary-500 text-white px-3 py-1 rounded-lg;
+  }
+
+  /* Better mobile touch targets */
+  button, a {
+    @apply min-h-[44px] min-w-[44px];
+  }
+}
+
+/* Dark mode support (future enhancement) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Will be implemented if dark mode is needed */
+  }
 }
