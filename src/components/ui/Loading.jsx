@@ -63,10 +63,10 @@ const Loading = ({
 };
 
 // Skeleton Loading Components
-const Skeleton = ({ 
-  className = '', 
+const Skeleton = ({
+  className = '',
   variant = 'default',
-  ...props 
+  ...props
 }) => {
   const variants = {
     default: 'bg-gray-200',
@@ -75,8 +75,8 @@ const Skeleton = ({
   };
 
   return (
-    <div 
-      className={`skeleton animate-pulse rounded ${variants[variant]} ${className}`}
+    <div
+      className={`animate-pulse rounded ${variants[variant]} ${className}`}
       {...props}
     />
   );
