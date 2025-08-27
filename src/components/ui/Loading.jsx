@@ -95,7 +95,7 @@ const SkeletonText = ({ lines = 1, className = '' }) => (
 );
 
 const SkeletonCard = ({ className = '' }) => (
-  <div className={`card-base p-4 ${className}`}>
+  <div className={`bg-white rounded-2xl shadow-sm p-4 ${className}`}>
     <Skeleton className="aspect-square w-full mb-4" />
     <SkeletonText lines={2} />
     <div className="flex items-center justify-between mt-3">
