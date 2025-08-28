@@ -1,13 +1,28 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useRef, useEffect } from 'react'
 import ShopContext from '../context/ShopContext'
 import { Link } from 'react-router-dom'
 import { Card, Button, Badge } from './ui'
 import { BiHeart, BiShoppingBag, BiShow } from 'react-icons/bi'
+import { useScrollAnimation, useHoverAnimation } from '../hooks/useGSAP'
 
 const ProductItem = ({ id, image, name, price, originalPrice, discount, category, inStock = true }) => {
   const { currency, addToCart, addToWishlist, removeFromWishlist, isInWishlist } = useContext(ShopContext)
   const [imageLoaded, setImageLoaded] = useState(false)
   const [addingToCart, setAddingToCart] = useState(false)
+
+  // GSAP animations
+  const cardRef = useScrollAnimation({
+    from: { opacity: 0, y: 40, scale: 0.95 },
+    to: { opacity: 1, y: 0, scale: 1 },
+    duration: 0.8,
+    ease: "power2.out"
+  })
+
+  const hoverRef = useHoverAnimation({
+    scale: 1.02,
+    duration: 0.3,
+    ease: "power2.out"
+  })
 
   const handleAddToCart = async (e) => {
     e.preventDefault() // Prevent navigation when clicking add to cart
@@ -42,12 +57,14 @@ const ProductItem = ({ id, image, name, price, originalPrice, discount, category
     Math.round(((originalPrice - price) / originalPrice) * 100) : null
 
   return (
-    <Link to={`/product/${id}`} className="block group">
-      <Card
-        interactive
-        className="relative overflow-hidden group rounded-none"
-        padding="none"
-      >
+    <div ref={cardRef} className="product-item-container">
+      <Link to={`/product/${id}`} className="block group">
+        <div ref={hoverRef}>
+          <Card
+            interactive
+            className="relative overflow-hidden group rounded-none"
+            padding="none"
+          >
         {/* Image Container */}
         <div className="relative overflow-hidden aspect-square bg-gray-100">
           {/* Loading skeleton */}
@@ -157,9 +174,11 @@ const ProductItem = ({ id, image, name, price, originalPrice, discount, category
             </div>
             <span className="text-xs text-gray-500">(4.0)</span>
           </div>
+          </div>
+          </Card>
         </div>
-      </Card>
-    </Link>
+      </Link>
+    </div>
   )
 }
 

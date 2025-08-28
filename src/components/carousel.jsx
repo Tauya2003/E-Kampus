@@ -7,6 +7,7 @@ import { SlArrowLeftCircle, SlArrowRightCircle } from "react-icons/sl";
 import { AiFillTag } from "react-icons/ai";
 import { FiEye } from "react-icons/fi";
 import { BiShoppingBag } from "react-icons/bi";
+import { useSectionAnimation } from '../hooks/useGSAP';
 
 // Direct imports for product images
 import p_img1 from '../assets/p_img1.png';
@@ -17,6 +18,9 @@ import p_img7 from '../assets/p_img7.png';
 import p_img60 from '../assets/p_img60.png';
 
 const ProductCarousel = () => {
+    // GSAP animations
+    const { sectionRef, titleRef, contentRef } = useSectionAnimation();
+
     // Custom arrow components
     const CustomPrevArrow = (onClickHandler, hasPrev, label) => (
         hasPrev && (
@@ -104,14 +108,15 @@ const ProductCarousel = () => {
     };
 
     return (
-        <div className="w-full mx-auto my-10 px-4">
-            <div className="text-center mb-5 text-2xl">
+        <div ref={sectionRef} className="w-full mx-auto my-10 px-4">
+            <div ref={titleRef} className="text-center mb-5 text-2xl">
                 <Title text1={'BEST'} text2={'SPOTS'}/>
                 <p className="text-gray-600 text-base">
                     Discover the best places for a quick bite on campus.
                 </p>
             </div>
-            <Carousel
+            <div ref={contentRef}>
+                <Carousel
                 showArrows={true}
                 showStatus={false}
                 showThumbs={false}
@@ -162,7 +167,8 @@ const ProductCarousel = () => {
                         </div>
                     </div>
                 ))}
-            </Carousel>
+                </Carousel>
+            </div>
         </div>
     );
 };

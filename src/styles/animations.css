@@ -1,0 +1,74 @@
+/* GSAP Animation Styles */
+
+/* Prevent flash of unstyled content during initial animations */
+.product-item-container {
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+}
+
+/* Smooth transitions for hover effects */
+.hover-animated {
+  transition: transform 0.3s ease-out;
+}
+
+/* Stagger animation delays for grid items */
+.stagger-item {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* ScrollTrigger animations */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+/* Hero entrance animation */
+.hero-entrance {
+  opacity: 0;
+}
+
+.search-entrance {
+  opacity: 0;
+  transform: translateY(30px) scale(0.9);
+}
+
+/* Section animations */
+.section-entrance {
+  opacity: 0;
+}
+
+.title-entrance {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.content-entrance {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Carousel animations */
+.carousel-entrance {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Smooth card hover effects (fallback for non-GSAP) */
+.card-hover-fallback {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card-hover-fallback:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Loading state styles */
+.gsap-loading {
+  visibility: hidden;
+}
+
+.gsap-loaded {
+  visibility: visible;
+}
