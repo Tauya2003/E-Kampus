@@ -134,9 +134,9 @@ const HeroWithSearch = () => {
         <img className='w-full h-full object-cover' alt="Hero" src={assets.hero_img} />
         
         {/* Desktop Search Overlay */}
-        <div className='hidden sm:block absolute inset-0 bg-black bg-opacity-20'>
+        <div className='hidden sm:block absolute inset-0 search-backdrop bg-black bg-opacity-20'>
           <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md px-6'>
-            <div className='bg-white bg-opacity-95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl border border-white border-opacity-30'>
+            <div className='search-glass-effect rounded-2xl p-6 shadow-2xl'>
               <div className='text-center mb-4'>
                 <h3 className='text-lg font-semibold text-gray-800 mb-1'>Find Anything</h3>
                 <p className='text-sm text-gray-600'>Products, food, accommodation & more</p>
@@ -165,7 +165,7 @@ const HeroWithSearch = () => {
 
                 {/* Desktop Search Suggestions */}
                 {showSuggestions && searchSuggestions.length > 0 && (
-                  <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-2xl border border-gray-200 z-50 max-h-60 overflow-y-auto">
+                  <div className="absolute top-full left-0 right-0 mt-2 search-glass-effect rounded-xl shadow-2xl z-50 max-h-60 overflow-y-auto">
                     <div className="p-2">
                       <p className="text-xs text-gray-500 px-3 py-2 font-medium">
                         Product Suggestions
@@ -175,7 +175,7 @@ const HeroWithSearch = () => {
                           key={index}
                           type="button"
                           onClick={() => handleSuggestionClick(suggestion)}
-                          className="w-full text-left px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 flex items-center justify-between"
+                          className="suggestion-item w-full text-left px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 flex items-center justify-between"
                         >
                           <span>{suggestion.text}</span>
                           <span className="text-xs text-gray-400">{suggestion.category}</span>
@@ -197,7 +197,7 @@ const HeroWithSearch = () => {
                     <button
                       key={index}
                       onClick={() => handleTrendingClick(trending)}
-                      className='px-3 py-1 bg-gray-100 hover:bg-blue-100 text-xs text-gray-600 hover:text-blue-600 rounded-full transition-colors duration-200'
+                      className='trending-tag px-3 py-1 bg-gray-100 hover:bg-blue-100 text-xs text-gray-600 hover:text-blue-600 rounded-full transition-all duration-200'
                     >
                       {trending}
                     </button>
@@ -223,8 +223,8 @@ const HeroWithSearch = () => {
 
       {/* Mobile Search Modal */}
       {isMobileSearchOpen && (
-        <div className='sm:hidden absolute inset-0 bg-black bg-opacity-50 z-30 flex items-center justify-center p-4'>
-          <div className='w-full max-w-sm bg-white rounded-2xl p-6 shadow-2xl'>
+        <div className='sm:hidden absolute inset-0 search-backdrop bg-black bg-opacity-50 z-30 flex items-center justify-center p-4'>
+          <div className='mobile-search-modal w-full max-w-sm bg-white rounded-2xl p-6 shadow-2xl'>
             <div className='text-center mb-4'>
               <h3 className='text-lg font-semibold text-gray-800 mb-1'>Search Everything</h3>
               <p className='text-sm text-gray-600'>Products, food, accommodation & more</p>
