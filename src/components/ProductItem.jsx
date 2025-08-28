@@ -57,12 +57,14 @@ const ProductItem = ({ id, image, name, price, originalPrice, discount, category
     Math.round(((originalPrice - price) / originalPrice) * 100) : null
 
   return (
-    <Link to={`/product/${id}`} className="block group">
-      <Card
-        interactive
-        className="relative overflow-hidden group rounded-none"
-        padding="none"
-      >
+    <div ref={cardRef} className="product-item-container">
+      <Link to={`/product/${id}`} className="block group">
+        <div ref={hoverRef}>
+          <Card
+            interactive
+            className="relative overflow-hidden group rounded-none"
+            padding="none"
+          >
         {/* Image Container */}
         <div className="relative overflow-hidden aspect-square bg-gray-100">
           {/* Loading skeleton */}
@@ -172,9 +174,11 @@ const ProductItem = ({ id, image, name, price, originalPrice, discount, category
             </div>
             <span className="text-xs text-gray-500">(4.0)</span>
           </div>
+          </div>
+          </Card>
         </div>
-      </Card>
-    </Link>
+      </Link>
+    </div>
   )
 }
 
