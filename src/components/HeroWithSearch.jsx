@@ -113,34 +113,34 @@ const HeroWithSearch = () => {
   }
 
   return (
-    <div className='relative min-h-[500px] border border-gray-400 overflow-hidden'>
+    <div className='relative h-[100vh] border  border-gray-400 overflow-hidden'>
       {/* Hero Image - Full Width */}
       <div className='w-full h-full relative'>
         <img className='w-full h-full object-cover' alt="Hero" src={assets.hero_img} />
         
         {/* Desktop Search Overlay */}
-        <div className='hidden sm:block absolute inset-0 search-backdrop bg-black bg-opacity-20'>
+        <div className='hidden sm:block absolute inset-0 search-backdrop bg-opacity-20'>
           <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md px-6'>
-            <div className='search-glass-effect rounded-2xl p-6 shadow-2xl'>
+            <div className='search-glass-effect p-6 shadow-2xl'>
               <div className='text-center mb-4'>
                 <h3 className='text-lg font-semibold text-gray-800 mb-1'>Find Anything</h3>
                 <p className='text-sm text-gray-600'>Products, food, accommodation & more</p>
               </div>
               
               <form onSubmit={handleSearchSubmit} className='relative' ref={searchRef}>
-                <div className='relative'>
+                <div className='relative bg-red-500'>
                   <Input.Search
                     value={search}
                     onChange={handleSearchChange}
                     onClear={handleClearSearch}
                     placeholder="Search..."
-                    className="text-base py-3 bg-white shadow-lg border-gray-200 focus:border-blue-500 focus:ring-blue-200"
+                    className="text-base py-3 rounded-none bg-white shadow-lg border-gray-200 focus:border-0 border-none ring-0"
                     showClearButton={true}
                   />
                   
                   <Button
                     type="submit"
-                    variant="primary"
+                    variant="black"
                     className="absolute right-2 top-1/2 transform -translate-y-1/2 px-4 py-2"
                     size="sm"
                   >
@@ -160,10 +160,10 @@ const HeroWithSearch = () => {
                           key={index}
                           type="button"
                           onClick={() => handleSuggestionClick(suggestion)}
-                          className="suggestion-item w-full text-left px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 flex items-center justify-between"
+                          className="suggestion-item w-full text-left px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-black/10 hover:text-black transition-colors duration-200 flex items-center justify-between"
                         >
                           <span>{suggestion.text}</span>
-                          <span className="text-xs text-gray-400">{suggestion.category}</span>
+                          <span className="text-xs text-gray-400">{suggestion.category}s</span>
                         </button>
                       ))}
                     </div>
@@ -182,7 +182,7 @@ const HeroWithSearch = () => {
                     <button
                       key={index}
                       onClick={() => handleTrendingClick(trending)}
-                      className='trending-tag px-3 py-1 bg-gray-100 hover:bg-blue-100 text-xs text-gray-600 hover:text-blue-600 rounded-full transition-all duration-200'
+                      className='trending-tag px-3 py-1 bg-gray-100 hover:bg-black/10 text-xs text-gray-600 hover:text-black rounded-full transition-all duration-200'
                     >
                       {trending}
                     </button>
@@ -195,10 +195,10 @@ const HeroWithSearch = () => {
       </div>
 
       {/* Mobile Search Toggle Button */}
-      <div className='sm:hidden absolute top-4 right-4 z-20'>
+      <div className='sm:hidden absolute top-4 right-4 z-40'>
         <Button
           onClick={toggleMobileSearch}
-          variant={isMobileSearchOpen ? "danger" : "primary"}
+          variant={isMobileSearchOpen ? "danger" : "black"}
           size="sm"
           className="rounded-full shadow-lg backdrop-blur-sm bg-opacity-90"
         >
@@ -208,8 +208,8 @@ const HeroWithSearch = () => {
 
       {/* Mobile Search Modal */}
       {isMobileSearchOpen && (
-        <div className='sm:hidden absolute inset-0 search-backdrop bg-black bg-opacity-50 z-30 flex items-center justify-center p-4'>
-          <div className='mobile-search-modal w-full max-w-sm bg-white rounded-2xl p-6 shadow-2xl'>
+        <div className='sm:hidden absolute inset-0 search-backdrop bg-opacity-50 z-30 flex items-center justify-center p-4'>
+          <div className='mobile-search-modal w-full max-w-sm search-glass-effect p-6 shadow-2xl'>
             <div className='text-center mb-4'>
               <h3 className='text-lg font-semibold text-gray-800 mb-1'>Search Everything</h3>
               <p className='text-sm text-gray-600'>Products, food, accommodation & more</p>
@@ -258,7 +258,7 @@ const HeroWithSearch = () => {
                     <button
                       key={index}
                       onClick={() => handleTrendingClick(trending)}
-                      className='trending-tag px-3 py-2 bg-gray-100 hover:bg-blue-100 text-xs text-gray-600 hover:text-blue-600 rounded-lg transition-all duration-200 text-center'
+                      className='trending-tag px-3 py-2 bg-gray-100 hover:bg-black/10 text-xs text-gray-600 hover:text-black rounded-lg transition-all duration-200 text-center'
                     >
                       {trending}
                     </button>
@@ -268,7 +268,7 @@ const HeroWithSearch = () => {
 
               <Button
                 type="submit"
-                variant="primary"
+                variant="black"
                 fullWidth
                 className="mb-2"
               >
