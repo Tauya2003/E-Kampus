@@ -19,6 +19,22 @@ const HeroWithSearch = () => {
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false)
   const searchRef = useRef(null)
 
+  // GSAP animations
+  const heroRef = useScrollAnimation({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    duration: 1.2,
+    ease: "power2.out"
+  })
+
+  const searchOverlayRef = useScrollAnimation({
+    from: { opacity: 0, scale: 0.9, y: 30 },
+    to: { opacity: 1, scale: 1, y: 0 },
+    duration: 1,
+    ease: "power2.out",
+    delay: 0.3
+  })
+
   // Enhanced search suggestions with categories
   const generateSuggestions = (query) => {
     if (!query || query.length < 2) return []
@@ -114,14 +130,14 @@ const HeroWithSearch = () => {
   }
 
   return (
-    <div className='relative h-[100vh] border  border-gray-400 overflow-hidden'>
+    <div ref={heroRef} className='relative h-[100vh] border  border-gray-400 overflow-hidden'>
       {/* Hero Image - Full Width */}
       <div className='w-full h-full relative'>
         <img className='w-full h-full object-cover' alt="Hero" src={assets.hero_img} />
         
         {/* Desktop Search Overlay */}
         <div className='hidden sm:block absolute inset-0 search-backdrop bg-opacity-20'>
-          <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md px-6'>
+          <div ref={searchOverlayRef} className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md px-6'>
             <div className='search-glass-effect p-6 shadow-2xl'>
               <div className='text-center mb-4'>
                 <h3 className='text-lg font-semibold text-gray-800 mb-1'>Find Anything</h3>
