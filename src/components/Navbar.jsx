@@ -74,18 +74,7 @@ const Navbar = () => {
               ))}
             </nav>
 
-            {/* Desktop Search Box */}
-            <div className="hidden lg:flex items-center flex-1 max-w-md mx-8">
-              <Input.Search
-                value={search}
-                onChange={handleSearchChange}
-                onClear={handleSearchClear}
-                placeholder="Search products, food, accommodation..."
-                className="text-sm"
-                showClearButton={true}
-              />
-            </div>
-
+       
             {/* Desktop Actions */}
             <div className="hidden sm:flex items-center gap-4">
 
@@ -207,18 +196,6 @@ const Navbar = () => {
             >
               <BiX className="w-6 h-6" />
             </button>
-          </div>
-
-          {/* Mobile Search */}
-          <div className="px-6 py-4 border-b border-neutral-200 lg:hidden">
-            <Input.Search
-              value={search}
-              onChange={handleSearchChange}
-              onClear={handleSearchClear}
-              placeholder="Search products, food, accommodation..."
-              className="text-sm"
-              showClearButton={true}
-            />
           </div>
 
           {/* Mobile Navigation */}
