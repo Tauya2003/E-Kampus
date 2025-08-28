@@ -40,7 +40,7 @@ const Navbar = () => {
     <>
       <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-neutral-200 shadow-soft">
         <div className="container-padding">
-          <div className="flex justify-between items-center py-4">
+          <div className="flex md:justify-between items-center py-4">
 
             {/* Logo */}
             <Link to="/" className="flex items-center hover-lift">
@@ -135,18 +135,10 @@ const Navbar = () => {
               </Link>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={toggleMobileMenu}
-              className="sm:hidden p-2 rounded-xl text-neutral-600 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200"
-              aria-label="Toggle mobile menu"
-              aria-expanded={mobileMenuVisible}
-            >
-              {mobileMenuVisible ? <BiX className="w-6 h-6" /> : <BiMenu className="w-6 h-6" />}
-            </button>
+         
 
             {/* Mobile Actions (Favourites & Cart) */}
-            <div className="flex sm:hidden items-center gap-2 ml-2">
+            <div className="flex sm:hidden items-center gap-2 ml-auto">
               <button
                 onClick={handleFavouritesClick}
                 className="relative p-2 rounded-xl text-neutral-600 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200"
@@ -165,6 +157,17 @@ const Navbar = () => {
                 <Badge.Cart count={cartCount} />
               </Link>
             </div>
+
+               {/* Mobile Menu Button */}
+               <button
+              onClick={toggleMobileMenu}
+              className="sm:hidden p-2 rounded-xl text-neutral-600 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200"
+              aria-label="Toggle mobile menu"
+              aria-expanded={mobileMenuVisible}
+            >
+              {mobileMenuVisible ? <BiX className="w-6 h-6" /> : <BiMenu className="w-6 h-6" />}
+            </button>
+
           </div>
         </div>
       </nav>
