@@ -273,7 +273,7 @@ const HeroWithSearch = () => {
                     <button
                       key={index}
                       onClick={() => handleTrendingClick(trending)}
-                      className='px-3 py-2 bg-gray-100 hover:bg-blue-100 text-xs text-gray-600 hover:text-blue-600 rounded-lg transition-colors duration-200 text-center'
+                      className='trending-tag px-3 py-2 bg-gray-100 hover:bg-blue-100 text-xs text-gray-600 hover:text-blue-600 rounded-lg transition-all duration-200 text-center'
                     >
                       {trending}
                     </button>
