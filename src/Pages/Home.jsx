@@ -14,7 +14,8 @@ const Home = () => {
   return (
     <div className='min-h-screen'>
       {/*<BLUR />*/}
-      {/*<Hero />*/}
+      <Hero />
+      <SearchBar />
       <div className='container-padding py-8'>
         <ProductCarousel />
         <Latest />

@@ -96,9 +96,7 @@ const SearchBar = () => {
     }
   }, [])
 
-  if (!showSearch || !visible) {
-    return null
-  }
+
 
   return (
     <div className="bg-gradient-to-r from-primary-50 to-secondary-50 border-b border-primary-100 py-6 animate-slide-up">
