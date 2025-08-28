@@ -1,8 +1,9 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useRef, useEffect } from 'react'
 import ShopContext from '../context/ShopContext'
 import { Link } from 'react-router-dom'
 import { Card, Button, Badge } from './ui'
 import { BiHeart, BiShoppingBag, BiShow } from 'react-icons/bi'
+import { useScrollAnimation, useHoverAnimation } from '../hooks/useGSAP'
 
 const ProductItem = ({ id, image, name, price, originalPrice, discount, category, inStock = true }) => {
   const { currency, addToCart, addToWishlist, removeFromWishlist, isInWishlist } = useContext(ShopContext)
