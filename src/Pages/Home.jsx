@@ -1,21 +1,19 @@
 import React from 'react'
 import {Routes,Route } from 'react-router-dom'
-import Hero from '../components/Hero'
+import HeroWithSearch from '../components/HeroWithSearch'
 import ProductCarousel from '../components/carousel'
 import Latest from '../components/Latest'
 import Bestseller from '../components/Bestseller'
 import Footer from '../components/Footer'
 import Ourpolicy from '../components/Ourpolicy'
 import Newsletter from '../components/Newsletter'
-import SearchBar from '../components/SearchBar'
 import BLUR from  '../components/BLUR'
 
 const Home = () => {
   return (
     <div className='min-h-screen'>
       {/*<BLUR />*/}
-      <Hero />
-      <SearchBar />
+      <HeroWithSearch />
       <div className='container-padding py-8'>
         <ProductCarousel />
         <Latest />

@@ -62,3 +62,68 @@ button:hover, a:hover {
         color: white;
     }
 }
+
+/* Search overlay animations and effects */
+.search-overlay-enter {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+.search-overlay-enter-active {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 200ms ease-out, transform 200ms ease-out;
+}
+
+.search-backdrop {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.search-glass-effect {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.trending-tag {
+    transition: all 0.2s ease;
+}
+
+.trending-tag:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* Smooth fade in for suggestions */
+.suggestion-item {
+    animation: fadeInSlide 0.15s ease-out;
+}
+
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile search modal animation */
+.mobile-search-modal {
+    animation: slideUpFade 0.25s ease-out;
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
