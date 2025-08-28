@@ -5,8 +5,7 @@ import { Card, Button, Badge } from './ui'
 import { BiHeart, BiShoppingBag, BiShow } from 'react-icons/bi'
 
 const ProductItem = ({ id, image, name, price, originalPrice, discount, category, inStock = true }) => {
-  const { currency, addToCart } = useContext(ShopContext)
-  const [isLiked, setIsLiked] = useState(false)
+  const { currency, addToCart, addToWishlist, removeFromWishlist, isInWishlist } = useContext(ShopContext)
   const [imageLoaded, setImageLoaded] = useState(false)
   const [addingToCart, setAddingToCart] = useState(false)
 
@@ -29,8 +28,15 @@ const ProductItem = ({ id, image, name, price, originalPrice, discount, category
   const handleLikeToggle = (e) => {
     e.preventDefault()
     e.stopPropagation()
-    setIsLiked(!isLiked)
+
+    if (isInWishlist(id)) {
+      removeFromWishlist(id)
+    } else {
+      addToWishlist(id)
+    }
   }
+
+  const isLiked = isInWishlist(id)
 
   const discountPercentage = originalPrice && price ?
     Math.round(((originalPrice - price) / originalPrice) * 100) : null
@@ -89,7 +95,7 @@ const ProductItem = ({ id, image, name, price, originalPrice, discount, category
               }`}
               aria-label={isLiked ? 'Remove from favorites' : 'Add to favorites'}
             >
-              <BiHeart className="w-4 h-4" />
+              <BiHeart className={`w-4 h-4 ${isLiked ? 'fill-current' : ''}`} />
             </button>
 
             <Link

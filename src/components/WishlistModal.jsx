@@ -65,8 +65,6 @@ const WishlistModal = () => {
           {/* Content */}
           <div className="overflow-y-auto max-h-[calc(80vh-120px)]">
             {wishlistProducts.length === 0 ? (
-              
-              {/* Empty State */}
               <div className="flex flex-col items-center justify-center py-12 px-6">
                 <div className="text-6xl mb-4">💝</div>
                 <h3 className="text-lg font-medium text-gray-900 mb-2">
@@ -83,8 +81,6 @@ const WishlistModal = () => {
                 </Button>
               </div>
             ) : (
-              
-              {/* Wishlist Items */}
               <div className="p-6 space-y-4">
                 {wishlistProducts.map((product) => (
                   <Card key={product._id} className="p-4">

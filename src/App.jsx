@@ -21,7 +21,7 @@ import ElectricalAppliances from './Pages/Electrical-Appliances'
 import Services from './Pages/Services'
 import Collection from './Pages/Collection'
 import Food from './Pages/Food'
-import SearchBar from './components/SearchBar'
+import WishlistModal from './components/WishlistModal'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -45,7 +45,9 @@ const App = () => {
 
       {/* Navigation */}
       <Navbar />
-      <SearchBar />
+
+      {/* Modals */}
+      <WishlistModal />
 
       {/* Main Content */}
       <main className="flex-1">
