@@ -10,6 +10,20 @@ const ProductItem = ({ id, image, name, price, originalPrice, discount, category
   const [imageLoaded, setImageLoaded] = useState(false)
   const [addingToCart, setAddingToCart] = useState(false)
 
+  // GSAP animations
+  const cardRef = useScrollAnimation({
+    from: { opacity: 0, y: 40, scale: 0.95 },
+    to: { opacity: 1, y: 0, scale: 1 },
+    duration: 0.8,
+    ease: "power2.out"
+  })
+
+  const hoverRef = useHoverAnimation({
+    scale: 1.02,
+    duration: 0.3,
+    ease: "power2.out"
+  })
+
   const handleAddToCart = async (e) => {
     e.preventDefault() // Prevent navigation when clicking add to cart
     e.stopPropagation()
