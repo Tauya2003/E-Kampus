@@ -3,6 +3,7 @@ import { assets } from '../assets/assets'
 import ShopContext from '../context/ShopContext'
 import { Input, Button } from './ui'
 import { BiSearch, BiX, BiTrendingUp } from 'react-icons/bi'
+import { useScrollAnimation } from '../hooks/useGSAP'
 
 const HeroWithSearch = () => {
   const { 
