@@ -2,13 +2,13 @@ import React, { useState, useContext } from 'react'
 import { assets } from '../assets/assets'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import ShopContext from '../context/ShopContext'
-import { Badge, Button } from './ui'
-import { BiSearch, BiUser, BiShoppingBag, BiMenu, BiX,   } from 'react-icons/bi'
+import { Badge, Button, Input } from './ui'
+import { BiUser, BiShoppingBag, BiMenu, BiX, BiHeart } from 'react-icons/bi'
 import { FaAppleAlt, FaBed, FaShoppingBag, FaHome } from 'react-icons/fa'
 
 const Navbar = () => {
   const [mobileMenuVisible, setMobileMenuVisible] = useState(false)
-  const { setShowSearch, getCartCount, navigate } = useContext(ShopContext)
+  const { search, setSearch, getCartCount, navigate, setShowWishlist, getWishlistCount } = useContext(ShopContext)
   const location = useLocation()
 
   const navigationItems = [
@@ -22,8 +22,16 @@ const Navbar = () => {
     setMobileMenuVisible(!mobileMenuVisible)
   }
 
-  const handleSearchClick = () => {
-    setShowSearch(true)
+  const handleSearchChange = (e) => {
+    setSearch(e.target.value)
+  }
+
+  const handleSearchClear = () => {
+    setSearch('')
+  }
+
+  const handleFavouritesClick = () => {
+    setShowWishlist(true)
   }
 
   const cartCount = getCartCount()
@@ -66,16 +74,29 @@ const Navbar = () => {
               ))}
             </nav>
 
+            {/* Desktop Search Box */}
+            <div className="hidden lg:flex items-center flex-1 max-w-md mx-8">
+              <Input.Search
+                value={search}
+                onChange={handleSearchChange}
+                onClear={handleSearchClear}
+                placeholder="Search products, food, accommodation..."
+                className="text-sm"
+                showClearButton={true}
+              />
+            </div>
+
             {/* Desktop Actions */}
             <div className="hidden sm:flex items-center gap-4">
 
-              {/* Search Button */}
+              {/* Favourites Button */}
               <button
-                onClick={handleSearchClick}
-                className="p-2 rounded-xl text-neutral-600 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200"
-                aria-label="Search products"
+                onClick={handleFavouritesClick}
+                className="relative p-2 rounded-xl text-neutral-600 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200"
+                aria-label={`Favourites with ${getWishlistCount()} items`}
               >
-                <BiSearch className="w-5 h-5" />
+                <BiHeart className="w-5 h-5" />
+                <Badge.Cart count={getWishlistCount()} />
               </button>
 
               {/* Profile Dropdown */}
@@ -135,14 +156,15 @@ const Navbar = () => {
               {mobileMenuVisible ? <BiX className="w-6 h-6" /> : <BiMenu className="w-6 h-6" />}
             </button>
 
-            {/* Mobile Actions (Search & Cart) */}
+            {/* Mobile Actions (Favourites & Cart) */}
             <div className="flex sm:hidden items-center gap-2 ml-2">
               <button
-                onClick={handleSearchClick}
-                className="p-2 rounded-xl text-neutral-600 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200"
-                aria-label="Search products"
+                onClick={handleFavouritesClick}
+                className="relative p-2 rounded-xl text-neutral-600 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200"
+                aria-label={`Favourites with ${getWishlistCount()} items`}
               >
-                <BiSearch className="w-5 h-5" />
+                <BiHeart className="w-5 h-5" />
+                <Badge.Cart count={getWishlistCount()} />
               </button>
 
               <Link
@@ -185,6 +207,18 @@ const Navbar = () => {
             >
               <BiX className="w-6 h-6" />
             </button>
+          </div>
+
+          {/* Mobile Search */}
+          <div className="px-6 py-4 border-b border-neutral-200 lg:hidden">
+            <Input.Search
+              value={search}
+              onChange={handleSearchChange}
+              onClear={handleSearchClear}
+              placeholder="Search products, food, accommodation..."
+              className="text-sm"
+              showClearButton={true}
+            />
           </div>
 
           {/* Mobile Navigation */}
