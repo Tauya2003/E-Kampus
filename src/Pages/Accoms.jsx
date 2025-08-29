@@ -3,7 +3,11 @@ import Title from '../components/Title'
 import { assets } from '../assets/assets'
 import './AccommodationModal.css'
 import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useFadeInAnimation, useScrollAnimation, useSectionAnimation } from '../hooks/useGSAP'
+
+// Register ScrollTrigger
+gsap.registerPlugin(ScrollTrigger)
 
 const Accoms = () => {
   const [selectedAccommodation, setSelectedAccommodation] = useState(null)
