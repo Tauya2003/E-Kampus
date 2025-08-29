@@ -37,12 +37,13 @@ const Accoms = () => {
           scale: 0.95
         })
 
-        // Create scroll-triggered animation
+        // Create scroll-triggered animation with subtle stagger
         gsap.to(card, {
           opacity: 1,
           y: 0,
           scale: 1,
           duration: 0.6,
+          delay: index * 0.1, // Subtle stagger effect
           ease: "power2.out",
           scrollTrigger: {
             trigger: card,
