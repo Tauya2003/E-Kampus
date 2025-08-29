@@ -6,12 +6,13 @@ import { BiSearch, BiX, BiTrendingUp } from 'react-icons/bi'
 import { useScrollAnimation } from '../hooks/useGSAP'
 
 const HeroWithSearch = () => {
-  const { 
-    search, 
-    setSearch, 
-    showSearch, 
+  const {
+    search,
+    setSearch,
+    showSearch,
     setShowSearch,
-    products 
+    products,
+    navigate
   } = useContext(ShopContext)
   
   const [searchSuggestions, setSearchSuggestions] = useState([])
