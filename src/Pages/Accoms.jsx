@@ -507,6 +507,31 @@ const Accoms = () => {
     ));
   };
 
+  const handleFavoriteToggle = (e, accommodationId) => {
+    e.stopPropagation(); // Prevent opening modal when clicking heart
+    const isAdded = toggleFavorite(accommodationId);
+
+    if (isAdded) {
+      toast.success('Added to favorites! ❤️', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+    } else {
+      toast.info('Removed from favorites', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+    }
+  };
+
   return (
     <div className="container-padding py-8 flex flex-col items-center">
       {/* On-Campus Accommodation Section */}
