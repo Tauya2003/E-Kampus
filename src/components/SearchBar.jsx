@@ -5,7 +5,7 @@ import { Input, Button } from './ui'
 import { BiX, BiFilter, BiSort } from 'react-icons/bi'
 
 const SearchBar = () => {
-  const { search, setSearch, showSearch, setShowSearch } = useContext(ShopContext)
+  const { search, setSearch, showSearch, setShowSearch, navigate } = useContext(ShopContext)
   const [visible, setVisible] = useState(false)
   const [searchSuggestions, setSearchSuggestions] = useState([])
   const [showSuggestions, setShowSuggestions] = useState(false)
