@@ -13,6 +13,7 @@ import Register from './Pages/Register'
 import ForgotPassword from './Pages/ForgotPassword'
 import ForgotPasswordNew from './Pages/ForgotPasswordNew'
 import ResetPassword from './Pages/ResetPassword'
+import AuthDemo from './Pages/AuthDemo'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Women from './Pages/Women'
@@ -75,6 +76,7 @@ const App = () => {
             <Route path="/Login" element={<LoginNew />} />
             <Route path="/forgot-password" element={<ForgotPasswordNew />} />
             <Route path="/ForgotPassword" element={<ForgotPasswordNew />} />
+            <Route path="/auth-demo" element={<AuthDemo />} />
             {/* Legacy Routes for backward compatibility */}
             <Route path="/login-legacy" element={<Login />} />
             <Route path="/forgot-password-legacy" element={<ForgotPassword />} />
