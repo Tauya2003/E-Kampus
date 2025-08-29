@@ -207,6 +207,45 @@ const Accoms = () => {
     }
   ]
 
+  // Setup scroll-triggered card animations
+  useEffect(() => {
+    accommodationCardsRef.current.forEach((card, index) => {
+      if (card) {
+        // Set initial state
+        gsap.set(card, {
+          opacity: 0,
+          y: 30,
+          scale: 0.95
+        })
+
+        // Create scroll-triggered animation with subtle stagger
+        gsap.to(card, {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.6,
+          delay: index * 0.1, // Subtle stagger effect
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 85%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse"
+          }
+        })
+      }
+    })
+
+    // Cleanup function to kill ScrollTriggers
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => {
+        if (trigger.vars.trigger && accommodationCardsRef.current.includes(trigger.vars.trigger)) {
+          trigger.kill()
+        }
+      })
+    }
+  }, [])
+
   useEffect(() => {
     if (isModalOpen && modalRef.current && overlayRef.current) {
       // GSAP animation for modal open
