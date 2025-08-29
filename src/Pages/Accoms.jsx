@@ -11,7 +11,9 @@ import {
 } from "../hooks/useGSAP";
 import { Button } from "../components/ui";
 import { BiX } from "react-icons/bi";
-import { FaStar } from "react-icons/fa";
+import { FaStar, FaHeart, FaRegHeart } from "react-icons/fa";
+import { useFavorites } from "../context/FavoritesContext";
+import { toast } from "react-toastify";
 
 // Register ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
