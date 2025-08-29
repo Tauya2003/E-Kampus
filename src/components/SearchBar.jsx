@@ -79,7 +79,11 @@ const SearchBar = () => {
   const handleSearchSubmit = (e) => {
     e.preventDefault()
     setShowSuggestions(false)
-    // In a real app, this might trigger navigation or API call
+    // Navigate to collection page with search
+    if (search.trim()) {
+      setShowSearch(true)
+      navigate('/Collection')
+    }
   }
 
   // Handle click outside to close suggestions
