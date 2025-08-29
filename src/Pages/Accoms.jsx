@@ -25,6 +25,9 @@ const Accoms = () => {
   const [showReviewForm, setShowReviewForm] = useState(false);
   const [newReview, setNewReview] = useState({ rating: 5, text: "", name: "" });
 
+  // Favorites functionality
+  const { toggleFavorite, isFavorite } = useFavorites();
+
   const modalRef = useRef(null);
   const overlayRef = useRef(null);
   const accommodationCardsRef = useRef([]);
