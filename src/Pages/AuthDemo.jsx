@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { getAuthToken, hasCookieConsent, isRememberMeEnabled } from '../utils/cookieUtils';
 import LogoutButton from '../components/LogoutButton';
-import { FiCheckCircle, FiX, FiInfo, FiUser, FiShield, FiCookie } from 'react-icons/fi';
+import { FiCheckCircle, FiX, FiInfo, FiUser, FiShield, FiGrid } from 'react-icons/fi';
 
 const AuthDemo = () => {
   const { isAuthenticated, user, isLoading } = useAuth();
@@ -159,7 +159,7 @@ const AuthDemo = () => {
           {/* Features Overview */}
           <div className="bg-white rounded-2xl shadow-xl p-6 border border-slate-200 md:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <FiCookie className="w-6 h-6 text-purple-600" />
+              <FiGrid className="w-6 h-6 text-purple-600" />
               <h2 className="text-xl font-bold text-gray-900">Implemented Features</h2>
             </div>
 
