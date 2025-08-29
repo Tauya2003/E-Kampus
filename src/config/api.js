@@ -53,8 +53,28 @@ export const DEFAULT_CONFIG = {
 
 //Helper function to get authorization headers
 export const getAuthHeaders = () => {
-  const token = localStorage.getItem('token');
-  return token ? { Authorization: `Bearer ${token}` } : {};
+  // Import getCookie function dynamically to avoid circular dependencies
+  try {
+    const getCookie = (name) => {
+      const nameEQ = name + "=";
+      const ca = document.cookie.split(';');
+
+      for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) {
+          return decodeURIComponent(c.substring(nameEQ.length, c.length));
+        }
+      }
+      return null;
+    };
+
+    const token = getCookie('auth_token');
+    return token ? { Authorization: `Bearer ${token}` } : {};
+  } catch (error) {
+    console.error('Error getting auth headers:', error);
+    return {};
+  }
 };
 
 
