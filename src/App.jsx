@@ -27,13 +27,15 @@ import Food from './Pages/Food'
 import WishlistModal from './components/WishlistModal'
 import CookieConsent from './components/CookieConsent'
 import { AuthProvider } from './context/AuthContext'
+import { FavoritesProvider } from './context/FavoritesContext'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 const App = () => {
   return (
     <AuthProvider>
-      <div className="min-h-screen bg-neutral-50 flex flex-col">
+      <FavoritesProvider>
+        <div className="min-h-screen bg-neutral-50 flex flex-col">
         {/* Enhanced Toast Notifications */}
         <ToastContainer
           position="top-right"
@@ -95,7 +97,8 @@ const App = () => {
 
         {/* Cookie Consent Banner */}
         <CookieConsent />
-      </div>
+        </div>
+      </FavoritesProvider>
     </AuthProvider>
   )
 }
