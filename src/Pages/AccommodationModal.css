@@ -7,8 +7,6 @@
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   max-width: 400px;
   margin: 0 auto;
-  opacity: 0; /* Initial state for scroll animations */
-  transform: translateY(30px) scale(0.95); /* Initial transform state */
 }
 
 .accommodation-card:hover {
