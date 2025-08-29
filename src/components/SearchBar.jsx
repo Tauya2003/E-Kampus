@@ -68,6 +68,8 @@ const SearchBar = () => {
   const handleSuggestionClick = (suggestion) => {
     setSearch(suggestion)
     setShowSuggestions(false)
+    setShowSearch(true)
+    navigate('/Collection')
   }
 
   const handleCloseSearch = () => {
