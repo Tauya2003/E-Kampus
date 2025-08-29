@@ -7,29 +7,63 @@ const PageTransition = ({ children }) => {
   const location = useLocation();
   const prevLocationRef = useRef(location.pathname);
 
+  // Define different transition types for different routes
+  const getTransitionConfig = (currentPath, prevPath) => {
+    // Special transitions for specific routes
+    if (currentPath === '/' || prevPath === '/') {
+      // Home page - more dramatic transition
+      return {
+        from: { opacity: 0, y: 50, scale: 0.95 },
+        to: { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: "power3.out" }
+      };
+    }
+
+    if (currentPath.includes('/product/')) {
+      // Product pages - slide from right
+      return {
+        from: { opacity: 0, x: 100, scale: 0.98 },
+        to: { opacity: 1, x: 0, scale: 1, duration: 0.7, ease: "power2.out" }
+      };
+    }
+
+    if (currentPath === '/Collection' || currentPath === '/Accoms') {
+      // Collection/Accommodation pages - fade and slight zoom
+      return {
+        from: { opacity: 0, y: 20, scale: 0.99 },
+        to: { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "power2.out" }
+      };
+    }
+
+    if (currentPath.includes('/login') || currentPath.includes('/register')) {
+      // Auth pages - slide from bottom
+      return {
+        from: { opacity: 0, y: 40, scale: 0.97 },
+        to: { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.7)" }
+      };
+    }
+
+    // Default transition
+    return {
+      from: { opacity: 0, y: 30, scale: 0.98 },
+      to: { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "power2.out" }
+    };
+  };
+
   useEffect(() => {
     const currentPath = location.pathname;
     const prevPath = prevLocationRef.current;
 
     // Only animate if the path actually changed
     if (currentPath !== prevPath && pageRef.current) {
-      // Set initial state for incoming page
-      gsap.set(pageRef.current, {
-        opacity: 0,
-        y: 30,
-        scale: 0.98
-      });
+      const config = getTransitionConfig(currentPath, prevPath);
 
-      // Animate the page in
-      const tl = gsap.timeline();
-      
-      tl.to(pageRef.current, {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 0.6,
-        ease: "power2.out"
-      });
+      // Set initial state for incoming page
+      gsap.set(pageRef.current, config.from);
+
+      // Animate the page in with a slight delay for smoother transition
+      const tl = gsap.timeline({ delay: 0.1 });
+
+      tl.to(pageRef.current, config.to);
 
       // Store current path for next comparison
       prevLocationRef.current = currentPath;
@@ -38,6 +72,7 @@ const PageTransition = ({ children }) => {
       gsap.set(pageRef.current, {
         opacity: 1,
         y: 0,
+        x: 0,
         scale: 1
       });
     }
