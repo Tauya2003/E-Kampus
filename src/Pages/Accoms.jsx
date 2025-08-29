@@ -11,7 +11,9 @@ import {
 } from "../hooks/useGSAP";
 import { Button } from "../components/ui";
 import { BiX } from "react-icons/bi";
-import { FaStar } from "react-icons/fa";
+import { FaStar, FaHeart, FaRegHeart } from "react-icons/fa";
+import { useFavorites } from "../context/FavoritesContext";
+import { toast } from "react-toastify";
 
 // Register ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
@@ -22,6 +24,9 @@ const Accoms = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [showReviewForm, setShowReviewForm] = useState(false);
   const [newReview, setNewReview] = useState({ rating: 5, text: "", name: "" });
+
+  // Favorites functionality
+  const { toggleFavorite, isFavorite } = useFavorites();
 
   const modalRef = useRef(null);
   const overlayRef = useRef(null);
@@ -502,6 +507,31 @@ const Accoms = () => {
     ));
   };
 
+  const handleFavoriteToggle = (e, accommodationId) => {
+    e.stopPropagation(); // Prevent opening modal when clicking heart
+    const isAdded = toggleFavorite(accommodationId);
+
+    if (isAdded) {
+      toast.success('Added to favorites! ❤️', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+    } else {
+      toast.info('Removed from favorites', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+    }
+  };
+
   return (
     <div className="container-padding py-8 flex flex-col items-center">
       {/* On-Campus Accommodation Section */}
@@ -566,6 +596,17 @@ const Accoms = () => {
                 <div className="image-count">
                   <span>{accommodation.images.length} photos</span>
                 </div>
+                <button
+                  className={`favorite-button ${isFavorite(accommodation.id) ? 'favorited' : ''}`}
+                  onClick={(e) => handleFavoriteToggle(e, accommodation.id)}
+                  aria-label={isFavorite(accommodation.id) ? 'Remove from favorites' : 'Add to favorites'}
+                >
+                  {isFavorite(accommodation.id) ? (
+                    <FaHeart className="heart-icon filled" />
+                  ) : (
+                    <FaRegHeart className="heart-icon" />
+                  )}
+                </button>
               </div>
 
               <div className="accommodation-content">

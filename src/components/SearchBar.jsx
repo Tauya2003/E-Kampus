@@ -5,7 +5,7 @@ import { Input, Button } from './ui'
 import { BiX, BiFilter, BiSort } from 'react-icons/bi'
 
 const SearchBar = () => {
-  const { search, setSearch, showSearch, setShowSearch } = useContext(ShopContext)
+  const { search, setSearch, showSearch, setShowSearch, navigate } = useContext(ShopContext)
   const [visible, setVisible] = useState(false)
   const [searchSuggestions, setSearchSuggestions] = useState([])
   const [showSuggestions, setShowSuggestions] = useState(false)
@@ -68,6 +68,8 @@ const SearchBar = () => {
   const handleSuggestionClick = (suggestion) => {
     setSearch(suggestion)
     setShowSuggestions(false)
+    setShowSearch(true)
+    navigate('/Collection')
   }
 
   const handleCloseSearch = () => {
@@ -79,7 +81,11 @@ const SearchBar = () => {
   const handleSearchSubmit = (e) => {
     e.preventDefault()
     setShowSuggestions(false)
-    // In a real app, this might trigger navigation or API call
+    // Navigate to collection page with search
+    if (search.trim()) {
+      setShowSearch(true)
+      navigate('/Collection')
+    }
   }
 
   // Handle click outside to close suggestions
@@ -165,7 +171,11 @@ const SearchBar = () => {
               {['Snacks', 'Breakfast', 'Accommodation', 'Electronics'].map((tag) => (
                 <button
                   key={tag}
-                  onClick={() => setSearch(tag)}
+                  onClick={() => {
+                    setSearch(tag)
+                    setShowSearch(true)
+                    navigate('/Collection')
+                  }}
                   className="px-3 py-1 bg-white rounded-full text-primary-600 hover:bg-primary-50 transition-colors duration-200 shadow-soft hover:shadow-moderate"
                 >
                   {tag}

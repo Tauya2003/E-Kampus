@@ -26,14 +26,19 @@ import Collection from './Pages/Collection'
 import Food from './Pages/Food'
 import WishlistModal from './components/WishlistModal'
 import CookieConsent from './components/CookieConsent'
+import PageTransition from './components/PageTransition'
 import { AuthProvider } from './context/AuthContext'
+import { FavoritesProvider } from './context/FavoritesContext'
+import ShopProvider from './context/ShopProvider'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 const App = () => {
   return (
     <AuthProvider>
-      <div className="min-h-screen bg-neutral-50 flex flex-col">
+      <ShopProvider>
+        <FavoritesProvider>
+        <div className="min-h-screen bg-neutral-50 flex flex-col">
         {/* Enhanced Toast Notifications */}
         <ToastContainer
           position="top-right"
@@ -60,7 +65,8 @@ const App = () => {
 
         {/* Main Content */}
         <main className="flex-1">
-          <Routes>
+          <PageTransition>
+            <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/Food" element={<Food />} />
             <Route path="/Accoms" element={<Accoms />} />
@@ -87,7 +93,8 @@ const App = () => {
             <Route path="/ElectricalAppliances" element={<ElectricalAppliances />} />
             <Route path="/Services" element={<Services />} />
             <Route path="/About" element={<About />} />
-          </Routes>
+            </Routes>
+          </PageTransition>
         </main>
 
         {/* Footer */}
@@ -95,7 +102,9 @@ const App = () => {
 
         {/* Cookie Consent Banner */}
         <CookieConsent />
-      </div>
+        </div>
+        </FavoritesProvider>
+      </ShopProvider>
     </AuthProvider>
   )
 }

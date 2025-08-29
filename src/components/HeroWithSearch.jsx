@@ -6,12 +6,13 @@ import { BiSearch, BiX, BiTrendingUp } from 'react-icons/bi'
 import { useScrollAnimation } from '../hooks/useGSAP'
 
 const HeroWithSearch = () => {
-  const { 
-    search, 
-    setSearch, 
-    showSearch, 
+  const {
+    search,
+    setSearch,
+    showSearch,
     setShowSearch,
-    products 
+    products,
+    navigate
   } = useContext(ShopContext)
   
   const [searchSuggestions, setSearchSuggestions] = useState([])
@@ -102,12 +103,16 @@ const HeroWithSearch = () => {
     setSearch(suggestion.text)
     setShowSuggestions(false)
     setIsMobileSearchOpen(false)
+    setShowSearch(true)
+    navigate('/Collection')
   }
 
   const handleTrendingClick = (trending) => {
     setSearch(trending)
     setShowSuggestions(false)
     setIsMobileSearchOpen(false)
+    setShowSearch(true)
+    navigate('/Collection')
   }
 
   const handleSearchSubmit = (e) => {
@@ -116,7 +121,8 @@ const HeroWithSearch = () => {
     setIsMobileSearchOpen(false)
     // Navigate to collection page with search
     if (search.trim()) {
-      window.location.href = '/Collection'
+      setShowSearch(true)
+      navigate('/Collection')
     }
   }
 

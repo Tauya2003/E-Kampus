@@ -72,3 +72,48 @@
 .gsap-loaded {
   visibility: visible;
 }
+
+/* Page Transition Styles */
+.page-transition-wrapper {
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth page load animation */
+.page-loaded {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Prevent layout shift during transitions */
+body {
+  overflow-x: hidden;
+}
+
+/* Enhanced scroll behavior for page transitions */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optimize rendering for animations */
+* {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .page-transition-wrapper {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

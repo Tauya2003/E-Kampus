@@ -680,3 +680,74 @@
   background: #cbd5e0;
   border-radius: 2px;
 }
+
+/* Favorite Button Styles */
+.favorite-button {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.favorite-button:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.heart-icon {
+  font-size: 16px;
+  transition: all 0.3s ease;
+  color: #6b7280;
+}
+
+.heart-icon.filled {
+  color: #ef4444;
+}
+
+.favorite-button.favorited {
+  background: rgba(239, 68, 68, 0.1);
+  border: 2px solid rgba(239, 68, 68, 0.3);
+}
+
+.favorite-button.favorited:hover {
+  background: rgba(239, 68, 68, 0.15);
+  transform: scale(1.1);
+}
+
+.favorite-button.favorited .heart-icon.filled {
+  color: #ef4444;
+  animation: heartBeat 0.3s ease-in-out;
+}
+
+@keyframes heartBeat {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* Mobile responsive for favorite button */
+@media (max-width: 480px) {
+  .favorite-button {
+    width: 32px;
+    height: 32px;
+    top: 8px;
+    left: 8px;
+  }
+
+  .heart-icon {
+    font-size: 14px;
+  }
+}
