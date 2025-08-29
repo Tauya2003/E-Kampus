@@ -29,6 +29,7 @@ import CookieConsent from './components/CookieConsent'
 import PageTransition from './components/PageTransition'
 import { AuthProvider } from './context/AuthContext'
 import { FavoritesProvider } from './context/FavoritesContext'
+import ShopProvider from './context/ShopProvider'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
