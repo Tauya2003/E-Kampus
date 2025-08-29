@@ -36,7 +36,8 @@ import 'react-toastify/dist/ReactToastify.css'
 const App = () => {
   return (
     <AuthProvider>
-      <FavoritesProvider>
+      <ShopProvider>
+        <FavoritesProvider>
         <div className="min-h-screen bg-neutral-50 flex flex-col">
         {/* Enhanced Toast Notifications */}
         <ToastContainer
@@ -102,7 +103,8 @@ const App = () => {
         {/* Cookie Consent Banner */}
         <CookieConsent />
         </div>
-      </FavoritesProvider>
+        </FavoritesProvider>
+      </ShopProvider>
     </AuthProvider>
   )
 }
