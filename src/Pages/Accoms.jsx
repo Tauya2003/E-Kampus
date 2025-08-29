@@ -18,13 +18,51 @@ const Accoms = () => {
   
   const modalRef = useRef(null)
   const overlayRef = useRef(null)
-  const accommodationCardsRef = useFadeInAnimation(true, { delay: 0.3 })
+  const accommodationCardsRef = useRef([])
   const { sectionRef, titleRef, contentRef } = useSectionAnimation()
   const onCampusRef = useScrollAnimation({
     from: { opacity: 0, x: -50 },
     to: { opacity: 1, x: 0 },
     duration: 0.8
   })
+
+  // Setup scroll-triggered card animations
+  useEffect(() => {
+    accommodationCardsRef.current.forEach((card, index) => {
+      if (card) {
+        // Set initial state
+        gsap.set(card, {
+          opacity: 0,
+          y: 30,
+          scale: 0.95
+        })
+
+        // Create scroll-triggered animation
+        gsap.to(card, {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.6,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 85%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse"
+          }
+        })
+      }
+    })
+
+    // Cleanup function to kill ScrollTriggers
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => {
+        if (trigger.vars.trigger && accommodationCardsRef.current.includes(trigger.vars.trigger)) {
+          trigger.kill()
+        }
+      })
+    }
+  }, [offCampusAccommodations])
 
   const offCampusAccommodations = [
     { 
