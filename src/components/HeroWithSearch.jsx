@@ -109,6 +109,8 @@ const HeroWithSearch = () => {
     setSearch(trending)
     setShowSuggestions(false)
     setIsMobileSearchOpen(false)
+    setShowSearch(true)
+    navigate('/Collection')
   }
 
   const handleSearchSubmit = (e) => {
