@@ -103,6 +103,8 @@ const HeroWithSearch = () => {
     setSearch(suggestion.text)
     setShowSuggestions(false)
     setIsMobileSearchOpen(false)
+    setShowSearch(true)
+    navigate('/Collection')
   }
 
   const handleTrendingClick = (trending) => {
