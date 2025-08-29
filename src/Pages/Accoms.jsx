@@ -372,9 +372,11 @@ const Accoms = () => {
         
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4'>
           {offCampusAccommodations.map((accommodation, index) => (
-            <div 
-              key={accommodation.id} 
-              ref={el => accommodationCardsRef.current[index] = el}
+            <div
+              key={accommodation.id}
+              ref={el => {
+                if (el) accommodationCardsRef.current[index] = el
+              }}
               className='accommodation-card cursor-pointer'
               onClick={() => openModal(accommodation)}
             >
