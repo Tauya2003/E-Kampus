@@ -63,7 +63,8 @@ const App = () => {
 
         {/* Main Content */}
         <main className="flex-1">
-          <Routes>
+          <PageTransition>
+            <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/Food" element={<Food />} />
             <Route path="/Accoms" element={<Accoms />} />
@@ -90,7 +91,8 @@ const App = () => {
             <Route path="/ElectricalAppliances" element={<ElectricalAppliances />} />
             <Route path="/Services" element={<Services />} />
             <Route path="/About" element={<About />} />
-          </Routes>
+            </Routes>
+          </PageTransition>
         </main>
 
         {/* Footer */}
