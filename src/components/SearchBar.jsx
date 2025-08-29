@@ -171,7 +171,11 @@ const SearchBar = () => {
               {['Snacks', 'Breakfast', 'Accommodation', 'Electronics'].map((tag) => (
                 <button
                   key={tag}
-                  onClick={() => setSearch(tag)}
+                  onClick={() => {
+                    setSearch(tag)
+                    setShowSearch(true)
+                    navigate('/Collection')
+                  }}
                   className="px-3 py-1 bg-white rounded-full text-primary-600 hover:bg-primary-50 transition-colors duration-200 shadow-soft hover:shadow-moderate"
                 >
                   {tag}
