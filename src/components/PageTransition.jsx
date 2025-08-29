@@ -79,12 +79,15 @@ const PageTransition = ({ children }) => {
   }, [location.pathname]);
 
   return (
-    <div 
+    <div
       ref={pageRef}
       className="page-transition-wrapper"
-      style={{ 
+      style={{
         minHeight: '100vh',
-        width: '100%' 
+        width: '100%',
+        transform: 'translate3d(0, 0, 0)', // Enable hardware acceleration
+        backfaceVisibility: 'hidden', // Smooth animations
+        perspective: 1000 // 3D perspective for smoother transforms
       }}
     >
       {children}
