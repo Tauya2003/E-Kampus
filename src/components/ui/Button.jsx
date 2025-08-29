@@ -21,6 +21,8 @@ const Button = forwardRef(({
     secondary: 'bg-green-500 hover:bg-green-600 text-white shadow-sm hover:shadow-md focus:ring-green-200',
     campus: 'bg-orange-500 hover:bg-orange-600 text-white shadow-sm hover:shadow-md focus:ring-orange-200',
     black: 'bg-black hover:bg-gray-800 text-white shadow-sm hover:shadow-md focus:ring-black-200',
+    light: 'bg-gray-100 hover:bg-gray-200 text-gray-800 shadow-sm hover:shadow-md focus:ring-gray-200',
+    gradient: 'bg-gradient-to-r from-blue-500 to-orange-600 hover:from-blue-600 hover:to-orange-700 text-white shadow-sm hover:shadow-md focus:ring-blue-200',
     outline: 'border-2 border-black text-black hover:bg-black hover:text-white focus:ring-black-200',
     ghost: 'text-black hover:bg-gray-50 focus:ring-black-200',
     danger: 'bg-red-500 hover:bg-red-600 text-white shadow-sm hover:shadow-md focus:ring-red-200',

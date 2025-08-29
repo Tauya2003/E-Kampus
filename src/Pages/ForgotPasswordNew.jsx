@@ -4,6 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import { validateField } from '../utils/validationUtils';
 import { FiMail, FiArrowLeft, FiLoader, FiCheckCircle } from 'react-icons/fi';
 import gsap from 'gsap';
+import Button from '../components/ui/Button';
 
 const ForgotPasswordNew = () => {
   const [email, setEmail] = useState('');
@@ -162,7 +163,7 @@ const ForgotPasswordNew = () => {
           <div className="text-center mb-8">
             <div ref={titleRef} className="inline-flex items-center gap-3 mb-4">
               <h1 className="text-3xl font-bold text-gray-900">Reset Password</h1>
-              <div className="h-0.5 w-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded"></div>
+              <div className="h-0.5 w-12 bg-gradient-to-r from-blue-500 to-orange-500 rounded"></div>
             </div>
             <p className="text-gray-600">
               Enter your email address and we'll send you instructions to reset your password.
@@ -182,7 +183,7 @@ const ForgotPasswordNew = () => {
                   type="email"
                   value={email}
                   onChange={handleEmailChange}
-                  className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ${
+                  className={`w-full pl-10 pr-4 py-3 border rounded-none focus:ring-0 focus:border-transparent transition-all duration-200 ${
                     validation.email && !validation.email.isValid 
                       ? 'border-red-300 bg-red-50' 
                       : 'border-gray-300 hover:border-gray-400'
@@ -197,32 +198,33 @@ const ForgotPasswordNew = () => {
             </div>
 
             {/* Submit Button */}
-            <button
-              type="submit"
-              disabled={!isFormValid() || isSubmitting}
-              className={`w-full py-3 px-4 rounded-lg font-semibold text-white transition-all duration-200 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
-                !isFormValid() || isSubmitting
-                  ? 'bg-gray-400 cursor-not-allowed'
-                  : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-xl'
-              }`}
-            >
-              {isSubmitting ? (
-                <div className="flex items-center justify-center">
-                  <FiLoader className="animate-spin w-5 h-5 mr-2" />
-                  Sending Reset Link...
-                </div>
-              ) : (
-                'Send Reset Link'
-              )}
-            </button>
+           <Button
+             type="submit"
+             variant="gradient"
+             disabled={!isFormValid() || isSubmitting}
+             className={`w-full py-3 px-4 offset-2 ${
+               !isFormValid() || isSubmitting
+                 ? 'cursor-not-allowed'
+                 : ''
+             }`}
+           >
+             {isSubmitting ? (
+               <div className="flex items-center justify-center">
+                 <FiLoader className="animate-spin w-5 h-5 mr-2" />
+                 Sending Reset Link...
+               </div>
+             ) : (
+               'Send Reset Link'
+             )}
+           </Button>
 
             {/* Help text */}
             <div className="text-center">
               <p className="text-sm text-gray-500">
                 Remember your password?{' '}
-                <Link 
-                  to="/login" 
-                  className="text-blue-600 hover:text-blue-500 font-semibold transition-colors"
+                <Link
+                  to="/login"
+                  className="text-black hover:text-gray-700 font-semibold transition-colors"
                 >
                   Sign in here
                 </Link>
