@@ -596,6 +596,17 @@ const Accoms = () => {
                 <div className="image-count">
                   <span>{accommodation.images.length} photos</span>
                 </div>
+                <button
+                  className={`favorite-button ${isFavorite(accommodation.id) ? 'favorited' : ''}`}
+                  onClick={(e) => handleFavoriteToggle(e, accommodation.id)}
+                  aria-label={isFavorite(accommodation.id) ? 'Remove from favorites' : 'Add to favorites'}
+                >
+                  {isFavorite(accommodation.id) ? (
+                    <FaHeart className="heart-icon filled" />
+                  ) : (
+                    <FaRegHeart className="heart-icon" />
+                  )}
+                </button>
               </div>
 
               <div className="accommodation-content">
