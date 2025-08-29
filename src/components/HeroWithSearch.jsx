@@ -117,7 +117,8 @@ const HeroWithSearch = () => {
     setIsMobileSearchOpen(false)
     // Navigate to collection page with search
     if (search.trim()) {
-      window.location.href = '/Collection'
+      setShowSearch(true)
+      navigate('/Collection')
     }
   }
 
