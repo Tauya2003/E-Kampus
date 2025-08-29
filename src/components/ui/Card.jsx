@@ -10,7 +10,7 @@ const Card = forwardRef(({
   ...props 
 }, ref) => {
   
-  const baseClasses = 'bg-white rounded-2xl shadow-sm transition-all duration-300';
+  const baseClasses = 'bg-white shadow-sm transition-all duration-300';
 
   const variants = {
     default: 'border border-gray-200',

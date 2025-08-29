@@ -40,7 +40,7 @@ const WishlistModal = () => {
       
       {/* Modal */}
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-        <div className="bg-white rounded-2xl shadow-strong max-w-2xl w-full max-h-[80vh] overflow-hidden">
+        <div className="bg-white shadow-strong max-w-2xl w-full max-h-[80vh] overflow-hidden">
           
           {/* Header */}
           <div className="flex items-center justify-between p-6 border-b border-gray-200">
@@ -49,7 +49,7 @@ const WishlistModal = () => {
               <h2 className="text-xl font-semibold text-gray-900">
                 My Wishlist
               </h2>
-              <Badge variant="primary" size="sm">
+              <Badge variant="campus" size="sm">
                 {wishlistItems.length}
               </Badge>
             </div>
@@ -74,7 +74,7 @@ const WishlistModal = () => {
                   Start adding items you love to your wishlist by clicking the heart icon on products!
                 </p>
                 <Button 
-                  variant="primary" 
+                  variant="black" 
                   onClick={handleClose}
                 >
                   Continue Shopping
@@ -95,7 +95,7 @@ const WishlistModal = () => {
                         <img
                           src={product.image?.[0] || '/placeholder-product.jpg'}
                           alt={product.name}
-                          className="w-20 h-20 object-cover rounded-lg hover:scale-105 transition-transform duration-200"
+                          className="w-20 h-20 object-cover hover:scale-105 transition-transform duration-200"
                         />
                       </Link>
 
@@ -106,7 +106,7 @@ const WishlistModal = () => {
                           onClick={handleClose}
                           className="block"
                         >
-                          <h3 className="font-medium text-gray-900 hover:text-blue-600 transition-colors duration-200 line-clamp-2">
+                          <h3 className="font-medium text-gray-900 hover:text-black transition-colors duration-200 line-clamp-2">
                             {product.name}
                           </h3>
                         </Link>
@@ -132,7 +132,7 @@ const WishlistModal = () => {
                       {/* Actions */}
                       <div className="flex flex-col gap-2 flex-shrink-0">
                         <Button
-                          variant="primary"
+                          variant="black"
                           size="sm"
                           onClick={() => handleAddToCart(product._id)}
                           icon={<BiShoppingBag className="w-4 h-4" />}
@@ -170,7 +170,7 @@ const WishlistModal = () => {
                   Continue Shopping
                 </Button>
                 <Button
-                  variant="primary"
+                  variant="black"
                   fullWidth
                   onClick={() => {
                     wishlistProducts.forEach(product => {

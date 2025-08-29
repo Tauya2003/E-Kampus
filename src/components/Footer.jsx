@@ -149,9 +149,9 @@ const Footer = () => {
                 <input
                   type="email"
                   placeholder="Your student email"
-                  className="flex-1 px-3 py-2 bg-neutral-700 border border-neutral-600 rounded-lg text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm"
+                  className="flex-1 px-3 py-2 bg-neutral-700 border border-neutral-600 text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm"
                 />
-                <Button variant="primary" size="sm">
+                <Button variant="campus" size="sm">
                   Subscribe
                 </Button>
               </div>
@@ -169,7 +169,7 @@ const Footer = () => {
                     key={index}
                     href={social.href}
                     aria-label={social.label}
-                    className={`p-2 bg-neutral-700 hover:bg-neutral-600 rounded-lg transition-all duration-200 hover-lift ${social.color}`}
+                    className={`p-2 bg-neutral-700 hover:bg-neutral-600 transition-all duration-200 hover-lift ${social.color}`}
                   >
                     <social.icon className="w-5 h-5" />
                   </a>
